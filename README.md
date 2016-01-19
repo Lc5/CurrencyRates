@@ -1,0 +1,2 @@
+# CurrencyRates
+.NET sample application
