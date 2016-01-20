@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="src\DbContext.cs" />
+    <Compile Include="src\Program.cs" />
     <Compile Include="src\CurrencyRates\Currency.cs" />
     <Compile Include="src\CurrencyRates\File.cs" />
     <Compile Include="src\CurrencyRates\Rate.cs" />
