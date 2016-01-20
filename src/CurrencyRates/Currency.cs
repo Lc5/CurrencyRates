@@ -7,6 +7,7 @@ namespace CurrencyRates
     {
         [Key]
         public string Code { get; set; }
+        [Required]
         public string Name { get; set; }
 
         public ICollection<Rate> Rates { get; set; }
