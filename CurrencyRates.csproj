@@ -53,11 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="src\DbContext.cs" />
-    <Compile Include="src\Program.cs" />
-    <Compile Include="src\CurrencyRates\Currency.cs" />
-    <Compile Include="src\CurrencyRates\File.cs" />
-    <Compile Include="src\CurrencyRates\Rate.cs" />
+    <Compile Include="src\CurrencyRates\DbContext.cs" />
+    <Compile Include="src\CurrencyRates\Program.cs" />
+    <Compile Include="src\CurrencyRates\Entity\Currency.cs" />
+    <Compile Include="src\CurrencyRates\Entity\File.cs" />
+    <Compile Include="src\CurrencyRates\Entity\Rate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using CurrencyRates.Entity;
+using System.Data.Entity;
 
 namespace CurrencyRates
 {

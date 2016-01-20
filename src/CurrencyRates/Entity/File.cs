@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CurrencyRates
+namespace CurrencyRates.Entity
 {
     class File
     {
