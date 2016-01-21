@@ -14,7 +14,7 @@ namespace CurrencyRates
 
                 if (args.Length > 0)
                 {
-                    action = (Actions)Enum.Parse(typeof(Actions), args[0], true);
+                    action = (Actions) Enum.Parse(typeof(Actions), args[0], true);
                 }
 
                 switch (action)
