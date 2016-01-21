@@ -9,9 +9,7 @@ namespace CurrencyRates.Entity
         [Required]
         public string Name { get; set; }
         [Required]
-        public string TableNumber { get; set; }
-        public DateTime PublicationDate { get; set; }
-        [Required]
         public string Content { get; set; }
+        public bool Processed { get; set; }
     }
 }
