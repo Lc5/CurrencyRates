@@ -2,7 +2,7 @@
 {
     class Currency
     {
-        public Entity.Currency BuildFromNbpXml(string xml)
+        public static Entity.Currency BuildFromNbpXml(string xml)
         {
             //@todo implement method
             return new Entity.Currency();

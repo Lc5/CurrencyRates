@@ -2,7 +2,7 @@
 {
     class Rate
     {
-        public Entity.Rate BuildFromNbpXml(string xml)
+        public static Entity.Rate BuildFromNbpXml(string xml)
         {
             //@todo implement method
             return new Entity.Rate();
