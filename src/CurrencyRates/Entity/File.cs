@@ -1,12 +1,12 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CurrencyRates.Entity
 {
     class File
     {
         public int Id { get; set; }
-        [Required]
+        [Index(IsUnique = true), MaxLength(15), MinLength(15), Required]
         public string Name { get; set; }
         [Required]
         public string Content { get; set; }

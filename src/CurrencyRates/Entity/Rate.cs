@@ -6,6 +6,7 @@ namespace CurrencyRates.Entity
     class Rate
     {
         public int Id { get; set; }
+        //@todo unique?
         public DateTime Date { get; set; }
         public decimal Value { get; set; }
         public int Multiplier { get; set; }

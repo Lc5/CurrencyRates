@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 
 namespace CurrencyRates
@@ -23,22 +24,26 @@ namespace CurrencyRates
                     switch (action)
                     {
                         case Actions.Fetch:
-                            //@todo implement Fetch action
                             var nbpService = new Service.Nbp.CurrencyRates(new WebClient());
 
-                            var filenames = nbpService.fetchFilenames();
+                            var filenames = nbpService
+                                .FetchFilenames()
+                                .Except(context.Files.Select(f => f.Name));
 
-                            //@todofilter filenames - only new are left
-
-                            var files = nbpService.fetchFiles(filenames);
+                            var files = nbpService.FetchFiles(filenames);
 
                             foreach (var file in files) {
                                 context.Files.Add(new Entity.File { Name = file.Name, Content = file.Content });
                             }
                             
                             context.SaveChanges();
-                       
+
                             //@todo parse rates
+                            var filesToProcess = context.Files.Where(f => f.Processed == false);
+
+                            foreach (var fileToProcess in filesToProcess) {
+                                Console.WriteLine(fileToProcess);
+                            }
 
                             break;
 
@@ -51,8 +56,8 @@ namespace CurrencyRates
                 }                  
             }
             catch (Exception e) {
-                Console.WriteLine("An error occured: " + e.Message);
-            }            
+                Console.WriteLine("An error occured: " + e);
+            }    
         }
     }
 }

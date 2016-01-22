@@ -54,6 +54,8 @@
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="src\CurrencyRates\DbContext.cs" />
+    <Compile Include="src\CurrencyRates\Entity\Builder\Currency.cs" />
+    <Compile Include="src\CurrencyRates\Entity\Builder\Rate.cs" />
     <Compile Include="src\CurrencyRates\Program.cs" />
     <Compile Include="src\CurrencyRates\Entity\Currency.cs" />
     <Compile Include="src\CurrencyRates\Entity\File.cs" />
@@ -65,7 +67,9 @@
     <Compile Include="src\CurrencyRates\Service\Nbp\Entity\File.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
