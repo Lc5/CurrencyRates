@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CurrencyRates.Entity
 { 
-    class Currency
+    public class Currency
     {
         [Key]
         public string Code { get; set; }

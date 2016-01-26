@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CurrencyRates.Entity
 {
-    class File
+    public class File
     {
         public int Id { get; set; }
         [Index(IsUnique = true), MaxLength(15), MinLength(15), Required]

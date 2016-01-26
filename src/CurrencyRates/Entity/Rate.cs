@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CurrencyRates.Entity
 {
-    class Rate
+    public class Rate
     {
         public int Id { get; set; }
         //@todo unique?
