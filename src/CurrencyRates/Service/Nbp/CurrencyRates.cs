@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
-using System.Text.RegularExpressions;
 
 namespace CurrencyRates.Service.Nbp
 {
@@ -33,8 +32,7 @@ namespace CurrencyRates.Service.Nbp
 
         public File FetchFile(string filename)
         {
-            var downloadedString = WebClient.DownloadString(Url + filename);
-            var content = Regex.Replace(downloadedString, @"\s+", "");
+            var content = WebClient.DownloadString(Url + filename);
 
             return new File() { Name = filename, Content = content };
         }
@@ -45,7 +43,7 @@ namespace CurrencyRates.Service.Nbp
 
             foreach (string filename in filenames)
             {
-                files.Add(this.FetchFile(filename));
+                files.Add(FetchFile(filename));
             }
 
             return files;
