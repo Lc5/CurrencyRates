@@ -7,7 +7,7 @@ namespace CurrencyRates.Entity
     {
         [Key, MaxLength(3), MinLength(3)]
         public string Code { get; set; }
-        [Required, MaxLength(128)]
+        [MaxLength(128), Required]
         public string Name { get; set; }
 
         public ICollection<Rate> Rates { get; set; }
