@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 
-namespace CurrencyRates.Service.Nbp.Entity
+namespace CurrencyRates.Service.Nbp.Entity.Collection
 {
     class CurrencyRateCollection : Collection<CurrencyRate>
     {
