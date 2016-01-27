@@ -6,7 +6,7 @@ namespace CurrencyRates.Entity
     public class File
     {
         public int Id { get; set; }
-        [Index(IsUnique = true), MaxLength(15), MinLength(15), Required]
+        [Index(IsUnique = true), MaxLength(15),  MinLength(15), Required]
         public string Name { get; set; }
         [Required]
         public string Content { get; set; }

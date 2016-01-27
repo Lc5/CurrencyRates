@@ -10,5 +10,12 @@ namespace CurrencyRates
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<Rate> Rates { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Rate>().Property(e => e.Value).HasPrecision(8, 4);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
