@@ -61,10 +61,11 @@
     <Compile Include="src\CurrencyRates\Entity\File.cs" />
     <Compile Include="src\CurrencyRates\Entity\Rate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="src\CurrencyRates\Service\Nbp\Entity\CurrencyRate.cs" />
-    <Compile Include="src\CurrencyRates\Service\Nbp\Entity\Collection\CurrencyRateCollection.cs" />
-    <Compile Include="src\CurrencyRates\Service\Nbp\CurrencyRates.cs" />
-    <Compile Include="src\CurrencyRates\Service\Nbp\Entity\File.cs" />
+    <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRate.cs" />
+    <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\Entity\Collection\CurrencyRateCollection.cs" />
+    <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\FileFetcher.cs" />
+    <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\Entity\File.cs" />
+    <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\Synchronizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

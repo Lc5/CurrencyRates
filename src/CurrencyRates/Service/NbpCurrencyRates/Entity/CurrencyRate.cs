@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 
-namespace CurrencyRates.Service.Nbp.Entity
+namespace CurrencyRates.Service.NbpCurrencyRates.Entity
 {
     class CurrencyRate
     {
@@ -10,7 +10,7 @@ namespace CurrencyRates.Service.Nbp.Entity
         public string CurrencyCode { get; set; }
         public decimal AverageValue { get; set; }
 
-        public static CurrencyRate buildFromXml(string xmlString)
+        public static CurrencyRate BuildFromXml(string xmlString)
         {
             var xmlRoot = XDocument.Parse(xmlString).Root;
 

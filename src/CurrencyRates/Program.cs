@@ -1,6 +1,5 @@
-﻿using CurrencyRates.Service.Nbp.Entity;
+﻿using CurrencyRates.Linq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
@@ -39,7 +38,9 @@ namespace CurrencyRates
 
                         default:
                             Fetch(context);
+                            context.SaveChanges();
                             Process(context);
+                            context.SaveChanges();
                             Show(context);
                             break;
                     }
@@ -47,20 +48,17 @@ namespace CurrencyRates
                     context.SaveChanges();
                 }                  
             }
-            catch (Exception e) {
-                Console.WriteLine("An error occured: " + e);             
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());             
             }
+            Console.ReadLine();
         }
 
         static void Fetch(Context context)
         {
-            var nbpService = new Service.Nbp.CurrencyRates(new WebClient());
-
-            var filenames = nbpService
-                .FetchFilenames()
-                .Except(context.Files.Select(f => f.Name));
-
-            var files = nbpService.FetchFiles(filenames);
+            var nbpService = new Service.NbpCurrencyRates.FileFetcher(new WebClient());
+            var files = nbpService.FetchAllFilesExcept(context.Files.Select(f => f.Name));
 
             foreach (var file in files)
             {
@@ -69,60 +67,24 @@ namespace CurrencyRates
         }
 
         static void Process(Context context)
-        { 
-            var files = context.Files.Where(f => !f.Processed);
-
-            foreach (var file in files)
-            {
-                var currencyRateCollection = CurrencyRateCollection.buildFromXml(file.Content);
-
-                var currenciesToAdd = currencyRateCollection
-                    .Select(cr => new Entity.Currency { Code = cr.CurrencyCode, Name = cr.CurrencyName })
-                    .Except(context.Currencies.Select(c => c).AsEnumerable(), new CurrencyComparer())
-                    .Except(context.Currencies.Local.Select(c => c).AsEnumerable(), new CurrencyComparer());
-
-                context.Currencies.AddRange(currenciesToAdd);
-
-                foreach (var currencyRate in currencyRateCollection)
-                {
-                    var rate = new Entity.Rate()
-                    {
-                        Date = currencyRateCollection.PublicationDate,
-                        Value = currencyRate.AverageValue,
-                        Multiplier = currencyRate.Multiplier,
-                        CurrencyCode = currencyRate.CurrencyCode,
-                        FileId = file.Id
-                    };
-
-                    context.Rates.Add(rate);
-                }
-
-                file.Processed = true;
-            }
+        {
+            var synchronizer = new Service.NbpCurrencyRates.Synchronizer(context);
+            synchronizer.SyncFiles(context.Files.Where(f => !f.Processed));
         }
 
         static void Show(Context context)
         {
-            var rates = context.Rates.OrderByDescending(r => r.Date).GroupBy(r => r.CurrencyCode).Select(x => x.FirstOrDefault());
+            var rates = context.Rates
+                .OrderByDescending(r => r.Date)
+                .DistinctBy(r => r.CurrencyCode)
+                .OrderBy(r => r.CurrencyCode)
+                .Select(x => x);
 
+            //@todo better formatting
             foreach (var rate in rates)
             {
-                Console.WriteLine(rate.Date + " " + rate.CurrencyCode + " " + rate.Value + " " + rate.Multiplier);
+                Console.WriteLine("| " + rate.Date.ToString("dd-MM-yyyy") + " | " + rate.CurrencyCode + " | " + rate.Currency.Name + " | " + rate.Value + " PLN | " + rate.Multiplier + " |");
             }
-        }
-    }
-
-    //@todo refactor this
-    public class CurrencyComparer : IEqualityComparer<Entity.Currency>
-    {
-        public bool Equals(Entity.Currency x, Entity.Currency y)
-        {
-            return x.Code == y.Code;
-        }
-
-        public int GetHashCode(Entity.Currency obj)
-        {
-            return 0;
         }
     }
 }

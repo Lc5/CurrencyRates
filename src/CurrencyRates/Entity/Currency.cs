@@ -10,6 +10,6 @@ namespace CurrencyRates.Entity
         [MaxLength(128), Required]
         public string Name { get; set; }
 
-        public ICollection<Rate> Rates { get; set; }
+        public virtual ICollection<Rate> Rates { get; set; }
     }
 }

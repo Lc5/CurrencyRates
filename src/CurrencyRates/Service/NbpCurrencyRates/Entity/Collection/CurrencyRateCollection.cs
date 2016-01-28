@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Xml.Linq;
 
-namespace CurrencyRates.Service.Nbp.Entity.Collection
+namespace CurrencyRates.Service.NbpCurrencyRates.Entity.Collection
 {
     class CurrencyRateCollection : Collection<CurrencyRate>
     {
@@ -15,7 +15,7 @@ namespace CurrencyRates.Service.Nbp.Entity.Collection
             PublicationDate = publicationDate;
         }
 
-        public static CurrencyRateCollection buildFromXml(string xmlString)
+        public static CurrencyRateCollection BuildFromXml(string xmlString)
         {
             var xml = XDocument.Parse(xmlString);
 
@@ -26,7 +26,7 @@ namespace CurrencyRates.Service.Nbp.Entity.Collection
 
             foreach (var xmlRate in xml.Root.Elements("pozycja"))
             {
-                var currencyRate = CurrencyRate.buildFromXml(xmlRate.ToString());
+                var currencyRate = CurrencyRate.BuildFromXml(xmlRate.ToString());
                 collection.Add(currencyRate);
             }
 

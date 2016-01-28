@@ -1,4 +1,4 @@
-﻿namespace CurrencyRates.Service.Nbp.Entity
+﻿namespace CurrencyRates.Service.NbpCurrencyRates.Entity
 {
     class File
     {

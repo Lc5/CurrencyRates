@@ -1,20 +1,20 @@
-﻿using CurrencyRates.Service.Nbp.Entity;
+﻿using CurrencyRates.Service.NbpCurrencyRates.Entity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 
-namespace CurrencyRates.Service.Nbp
+namespace CurrencyRates.Service.NbpCurrencyRates
 {
-    class CurrencyRates
+    class FileFetcher
     {
         const string Url = "http://www.nbp.pl/kursy/xml/";
         const string FileListPath = "dir.txt";
-        //@todo dispose WebClient after work
+
         WebClient WebClient;
 
-        public CurrencyRates(WebClient webClient)
+        public FileFetcher(WebClient webClient)
         {
             WebClient = webClient;
         }
@@ -47,6 +47,18 @@ namespace CurrencyRates.Service.Nbp
             }
 
             return files;
+        }
+
+        public IEnumerable<File> FetchAllFilesExcept(IEnumerable<string> existingFilenames)
+        {
+            var filenames = FetchFilenames().Except(existingFilenames);
+
+            return FetchFiles(filenames);
+        }
+
+        ~FileFetcher()
+        {
+            WebClient.Dispose();
         }
     }
 }

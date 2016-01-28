@@ -16,7 +16,7 @@ namespace CurrencyRates.Entity
         public string CurrencyCode { get; set; }
         public int FileId { get; set; }
 
-        public Currency Currency { get; set; }
-        public File File { get; set; }
+        public virtual Currency Currency { get; set; }
+        public virtual File File { get; set; }
     }
 }
