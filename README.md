@@ -2,7 +2,7 @@
 .NET console application for fetching and displaying currency rates from NBP webservice. The app was developed as a research project with aim to learn C#, .NET and Entity Framework.
 
 ## Description
-The app fetches all the average currency rates for the current year from NBP webservice, saves them to local db and displays the newest rates for each currency. Each subsequent run will fetch and process only new rates.
+The app fetches all the average currency rates for the current year from NBP webservice, saves them to local DB and displays the newest rates for each currency. Each subsequent run will fetch and process only new rates.
 
 More information: (http://www.nbp.pl/home.aspx?f=/kursy/instrukcja_pobierania_kursow_walut.html)
 
