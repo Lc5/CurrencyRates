@@ -28,7 +28,7 @@ namespace CurrencyRates.Service.NbpCurrencyRates
             var currencyRateCollection = CurrencyRateCollection.BuildFromXml(file.Content);
 
             var newCurrencies = currencyRateCollection
-                    .Select(cr => new Currency { Code = cr.CurrencyCode, Name = cr.CurrencyName })
+                    .Select(cr => new Currency() { Code = cr.CurrencyCode, Name = cr.CurrencyName })
                     .Except(Context.Currencies.Select(c => c).AsEnumerable(), new CurrencyComparer())
                     .Except(Context.Currencies.Local.Select(c => c).AsEnumerable(), new CurrencyComparer());
 

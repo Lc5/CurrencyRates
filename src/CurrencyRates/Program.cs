@@ -62,7 +62,7 @@ namespace CurrencyRates
 
             foreach (var file in files)
             {
-                context.Files.Add(new Entity.File { Name = file.Name, Content = file.Content });
+                context.Files.Add(new Entity.File() { Name = file.Name, Content = file.Content });
             }
         }
 
