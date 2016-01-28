@@ -53,7 +53,9 @@ namespace CurrencyRates
             {
                 Console.WriteLine(e.ToString());             
             }
-            Console.ReadLine();
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
 
         static void Fetch(Context context)
