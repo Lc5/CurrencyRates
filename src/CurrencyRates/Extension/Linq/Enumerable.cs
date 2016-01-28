@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CurrencyRates.Linq
+namespace CurrencyRates.Extension.Linq
 {
     public static class Enumerable
     {

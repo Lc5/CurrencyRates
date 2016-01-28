@@ -1,4 +1,5 @@
-﻿using CurrencyRates.Linq;
+﻿using CurrencyRates.Extension;
+using CurrencyRates.Extension.Linq;
 using System;
 using System.Linq;
 using System.Net;
@@ -80,11 +81,23 @@ namespace CurrencyRates
                 .OrderBy(r => r.CurrencyCode)
                 .Select(x => x);
 
-            //@todo better formatting
+            var separator = new String('-', 79) + "\n";
+            var format = "| {0, -10} | {1, -40} | {2, 11} | {3, 5} |\n";
+
+            var output = "";
+
+            output += separator;
+            output += String.Format(format, "Date", "Currency", "Value", "Multi");     
+            output += separator;
+
             foreach (var rate in rates)
             {
-                Console.WriteLine("| " + rate.Date.ToString("dd-MM-yyyy") + " | " + rate.CurrencyCode + " | " + rate.Currency.Name + " | " + rate.Value + " PLN | " + rate.Multiplier + " |");
+                output += String.Format(format, rate.Date.ToString("dd-MM-yyyy"), rate.CurrencyCode + " " + rate.Currency.Name.Truncate(36), rate.Value + " PLN", rate.Multiplier);
             }
+
+            output += separator;
+
+            Console.Write(output);
         }
     }
 }

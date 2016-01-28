@@ -55,7 +55,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="src\CurrencyRates\DbContext.cs" />
     <Compile Include="src\CurrencyRates\Entity\Comparer\CurrencyComparer.cs" />
-    <Compile Include="src\CurrencyRates\Linq\Enumerable.cs" />
+    <Compile Include="src\CurrencyRates\Extension\Linq\Enumerable.cs" />
     <Compile Include="src\CurrencyRates\Program.cs" />
     <Compile Include="src\CurrencyRates\Entity\Currency.cs" />
     <Compile Include="src\CurrencyRates\Entity\File.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\FileFetcher.cs" />
     <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\Entity\File.cs" />
     <Compile Include="src\CurrencyRates\Service\NbpCurrencyRates\Synchronizer.cs" />
+    <Compile Include="src\CurrencyRates\Extension\StringUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
