@@ -55,7 +55,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="src\CurrencyRates\DbContext.cs" />
     <Compile Include="src\CurrencyRates\Entity\Comparer\CurrencyComparer.cs" />
-    <Compile Include="src\CurrencyRates\Extension\Linq\Enumerable.cs" />
+    <Compile Include="src\CurrencyRates\Enum\ProgramActions.cs" />
     <Compile Include="src\CurrencyRates\Program.cs" />
     <Compile Include="src\CurrencyRates\Entity\Currency.cs" />
     <Compile Include="src\CurrencyRates\Entity\File.cs" />

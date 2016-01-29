@@ -1,5 +1,5 @@
-﻿using CurrencyRates.Extension;
-using CurrencyRates.Extension.Linq;
+﻿using CurrencyRates.Enum;
+using CurrencyRates.Extension;
 using System;
 using System.Linq;
 using System.Net;
@@ -8,32 +8,30 @@ namespace CurrencyRates
 {
     class Program
     {
-        enum Actions { Default, Fetch, Process, Show };
-
         static void Main(string[] args)
         {
             try
             {
-                var action = Actions.Default;
+                var action = ProgramActions.Default;
 
                 if (args.Length > 0)
                 {
-                    action = (Actions) Enum.Parse(typeof(Actions), args[0], true);
+                    action = (ProgramActions) System.Enum.Parse(typeof(ProgramActions), args[0], true);
                 }
 
                 using (var context = new Context())
                 {
                     switch (action)
                     {
-                        case Actions.Fetch:
+                        case ProgramActions.Fetch:
                             Fetch(context);
                             break;
 
-                        case Actions.Process:
+                        case ProgramActions.Process:
                             Process(context);
                             break;
 
-                        case Actions.Show:
+                        case ProgramActions.Show:
                             Show(context);
                             break;
 
@@ -78,8 +76,9 @@ namespace CurrencyRates
         static void Show(Context context)
         {
             var rates = context.Rates
-                .OrderByDescending(r => r.Date)
-                .DistinctBy(r => r.CurrencyCode)
+                .GroupBy(r => r.CurrencyCode)
+                .Select(g => g.OrderByDescending(r => r.Date))
+                .Select(g => g.FirstOrDefault())
                 .OrderBy(r => r.CurrencyCode);
 
             var separator = new String('-', 79) + "\n";
