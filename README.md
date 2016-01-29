@@ -7,7 +7,6 @@ The app fetches all the average currency rates for the current year from NBP web
 More information: (http://www.nbp.pl/home.aspx?f=/kursy/instrukcja_pobierania_kursow_walut.html)
 
 ## Usage
-
 The project can be compiled and run using Visual Studio 2015. To run the program use the following command:
 
 ```
@@ -15,8 +14,8 @@ CurrencyRates.exe [action]
 ```
 
 There are three actions available:
-- ```Fetch``` - fetches the xml files from the webservice and saves them into db
-- ```Process``` - processes unprocessed files from db and save rates into db
+- ```Fetch``` - fetches the xml files from the webservice and saves them into DB
+- ```Process``` - processes unprocessed files from DB and save rates into DB
 - ```Show``` - displays the newest rates for each currency
 
 If no argument is given ```Fetch```, ```Process``` and ```Show``` are run one after another.
