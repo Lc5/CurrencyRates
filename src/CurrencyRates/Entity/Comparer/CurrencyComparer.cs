@@ -9,9 +9,9 @@ namespace CurrencyRates.Entity.Comparer
             return first.Code == second.Code;
         }
 
-        public int GetHashCode(Currency obj)
+        public int GetHashCode(Currency currency)
         {
-            return obj.Code.GetHashCode();
+            return currency.Code.GetHashCode();
         }
     }
 }

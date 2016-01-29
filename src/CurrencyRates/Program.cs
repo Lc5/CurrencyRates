@@ -80,8 +80,7 @@ namespace CurrencyRates
             var rates = context.Rates
                 .OrderByDescending(r => r.Date)
                 .DistinctBy(r => r.CurrencyCode)
-                .OrderBy(r => r.CurrencyCode)
-                .Select(x => x);
+                .OrderBy(r => r.CurrencyCode);
 
             var separator = new String('-', 79) + "\n";
             var format = "| {0, -10} | {1, -40} | {2, 11} | {3, 5} |\n";
