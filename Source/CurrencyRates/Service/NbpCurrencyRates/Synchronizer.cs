@@ -9,28 +9,46 @@ namespace CurrencyRates.Service.NbpCurrencyRates
     class Synchronizer
     {
         Context Context;
+        FileFetcher FileFetcher;
 
-        public Synchronizer(Context context)
+        public Synchronizer(Context context, FileFetcher fileFetcher)
         {
             Context = context;
+            FileFetcher = fileFetcher;
         }
 
-        public void SyncFiles(IEnumerable<File> files)
+        public void SyncFiles()
         {
+            var files = FileFetcher.FetchAllFilesExcept(Context.Files.Select(f => f.Name));
+
             foreach (var file in files)
             {
-                SyncFile(file);
+                Context.Files.Add(new File() { Name = file.Name, Content = file.Content });
+            }
+
+            Context.SaveChanges();
+        }
+
+        public void SyncRatesFromUnprocessedFiles()
+        {
+            SyncRatesFromFiles(Context.Files.Where(f => !f.Processed));
+        }
+
+        public void SyncRatesFromFiles(IEnumerable<File> files)
+        {
+            foreach (var file in files.ToList())
+            {
+                SyncRatesFromFile(file);
             }
         }
 
-        public void SyncFile(File file)
+        public void SyncRatesFromFile(File file)
         {
             var currencyRateCollection = CurrencyRateCollection.BuildFromXml(file.Content);
 
             var newCurrencies = currencyRateCollection
                     .Select(cr => new Currency() { Code = cr.CurrencyCode, Name = cr.CurrencyName })
-                    .Except(Context.Currencies.Select(c => c).AsEnumerable(), new CurrencyComparer())
-                    .Except(Context.Currencies.Local.Select(c => c).AsEnumerable(), new CurrencyComparer());
+                    .Except(Context.Currencies.Select(c => c).AsEnumerable(), new CurrencyComparer());
 
             Context.Currencies.AddRange(newCurrencies);      
 
@@ -49,6 +67,8 @@ namespace CurrencyRates.Service.NbpCurrencyRates
             }
 
             file.Processed = true;
+
+            Context.SaveChanges();
         }
     }
 }
