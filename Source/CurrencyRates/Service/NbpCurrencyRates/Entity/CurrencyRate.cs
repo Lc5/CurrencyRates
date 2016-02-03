@@ -1,5 +1,4 @@
-﻿using System;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 namespace CurrencyRates.Service.NbpCurrencyRates.Entity
 {
@@ -19,19 +18,14 @@ namespace CurrencyRates.Service.NbpCurrencyRates.Entity
 
         public static CurrencyRate BuildFromXml(string xmlString)
         {
-            var xmlRoot = XDocument.Parse(xmlString).Root;
-
-            var currencyName = xmlRoot.Element(XmlCurrencyName).Value;
-            var multiplier = Int32.Parse(xmlRoot.Element(XmlMultiplier).Value);
-            var currencyCode = xmlRoot.Element(XmlCurrencyCode).Value;
-            var averageValue = decimal.Parse(xmlRoot.Element(XmlAverageValue).Value);
+            var xml = XDocument.Parse(xmlString).Root;
 
             var currencyRate = new CurrencyRate
             {
-                CurrencyName = currencyName,
-                Multiplier = multiplier,
-                CurrencyCode = currencyCode,
-                AverageValue = averageValue
+                CurrencyName = xml.Element(XmlCurrencyName).Value,
+                Multiplier = int.Parse(xml.Element(XmlMultiplier).Value),
+                CurrencyCode = xml.Element(XmlCurrencyCode).Value,
+                AverageValue = decimal.Parse(xml.Element(XmlAverageValue).Value)
             };
 
             return currencyRate;

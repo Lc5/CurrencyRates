@@ -17,15 +17,15 @@ namespace CurrencyRates.Service.NbpCurrencyRates.Entity.Collection
 
         public static CurrencyRateCollection BuildFromXml(string xmlString)
         {
-            var xml = XDocument.Parse(xmlString);
+            var xml = XDocument.Parse(xmlString).Root;
 
             var collection = new CurrencyRateCollection()
             {
-                TableNumber = xml.Root.Element(XmlTableNumber).Value,
-                PublicationDate = DateTime.Parse(xml.Root.Element(XmlPublicationDate).Value)
+                TableNumber = xml.Element(XmlTableNumber).Value,
+                PublicationDate = DateTime.Parse(xml.Element(XmlPublicationDate).Value)
             };
 
-            foreach (var xmlRate in xml.Root.Elements(XmlPosition))
+            foreach (var xmlRate in xml.Elements(XmlPosition))
             {
                 var currencyRate = CurrencyRate.BuildFromXml(xmlRate.ToString());
                 collection.Add(currencyRate);

@@ -1,7 +1,6 @@
 ﻿using CurrencyRates.Extension;
 using CurrencyRates.Service.NbpCurrencyRates;
 using System;
-using System.Linq;
 using System.Net;
 
 namespace CurrencyRates
@@ -60,15 +59,9 @@ namespace CurrencyRates
 
         static string Show(Context context)
         {
-            var rates = context.Rates
-                .GroupBy(r => r.CurrencyCode)
-                .Select(g => g.OrderByDescending(r => r.Date))
-                .Select(g => g.FirstOrDefault())
-                .OrderBy(r => r.CurrencyCode);
-
+            var rates = context.Rates.FindLatest();
             var separator = new String('-', 79) + "\n";
             var format = "| {0, -10} | {1, -40} | {2, 11} | {3, 5} |\n";
-
             var output = "";
 
             output += separator;
