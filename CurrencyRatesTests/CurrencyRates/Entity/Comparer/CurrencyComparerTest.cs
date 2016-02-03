@@ -13,7 +13,6 @@ namespace CurrencyRates.Entity.Comparer
             var comparer = new CurrencyComparer();
 
             Assert.True(comparer.Equals(first, second));
-
         }
 
         [Test]
@@ -24,7 +23,6 @@ namespace CurrencyRates.Entity.Comparer
             var comparer = new CurrencyComparer();
 
             Assert.False(comparer.Equals(first, second));
-
         }
 
         [Test]
@@ -34,7 +32,6 @@ namespace CurrencyRates.Entity.Comparer
             var comparer = new CurrencyComparer();
             
             Assert.AreEqual(currency.Code.GetHashCode(), comparer.GetHashCode(currency));
-
         }
     }
 }
