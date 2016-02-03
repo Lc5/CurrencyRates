@@ -5,3 +5,6 @@
 /obj/Debug
 /bin/Debug
 /.vs/CurrencyRates/v14
+/CurrencyRatesTests/bin/Debug
+/CurrencyRatesTests/obj/Debug
+/packages
