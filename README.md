@@ -1,4 +1,4 @@
-# CurrencyRates
+# Currency Rates
 .NET console application for fetching and displaying currency rates from NBP webservice. The app was developed as a research project with aim to learn C#, .NET and Entity Framework.
 
 ## Description

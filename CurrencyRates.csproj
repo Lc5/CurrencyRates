@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,22 +68,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Source\CurrencyRates\DbContext.cs" />
-    <Compile Include="Source\CurrencyRates\Entity\Comparer\CurrencyComparer.cs" />
-    <Compile Include="Source\CurrencyRates\Enum\Action.cs" />
-    <Compile Include="Source\CurrencyRates\Extension\DbSet.cs" />
-    <Compile Include="Source\CurrencyRates\Program.cs" />
-    <Compile Include="Source\CurrencyRates\Entity\Currency.cs" />
-    <Compile Include="Source\CurrencyRates\Entity\File.cs" />
-    <Compile Include="Source\CurrencyRates\Entity\Rate.cs" />
+    <Compile Include="CurrencyRates\Migrations\Configuration.cs" />
+    <Compile Include="CurrencyRates\DbContext.cs" />
+    <Compile Include="CurrencyRates\Entity\Comparer\CurrencyComparer.cs" />
+    <Compile Include="CurrencyRates\Enum\Action.cs" />
+    <Compile Include="CurrencyRates\Extension\DbSet.cs" />
+    <Compile Include="CurrencyRates\Program.cs" />
+    <Compile Include="CurrencyRates\Entity\Currency.cs" />
+    <Compile Include="CurrencyRates\Entity\File.cs" />
+    <Compile Include="CurrencyRates\Entity\Rate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRate.cs" />
-    <Compile Include="Source\CurrencyRates\Service\NbpCurrencyRates\Entity\Collection\CurrencyRateCollection.cs" />
-    <Compile Include="Source\CurrencyRates\Service\NbpCurrencyRates\FileFetcher.cs" />
-    <Compile Include="Source\CurrencyRates\Service\NbpCurrencyRates\Entity\File.cs" />
-    <Compile Include="Source\CurrencyRates\Service\NbpCurrencyRates\Synchronizer.cs" />
-    <Compile Include="Source\CurrencyRates\Extension\StringUtils.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRate.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\Collection\CurrencyRateCollection.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\FileFetcher.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\File.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Synchronizer.cs" />
+    <Compile Include="CurrencyRates\Extension\StringUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -75,7 +91,18 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
