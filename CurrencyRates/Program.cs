@@ -5,7 +5,7 @@ using System.Net;
 
 namespace CurrencyRates
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {       

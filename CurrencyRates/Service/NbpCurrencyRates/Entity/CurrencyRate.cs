@@ -2,7 +2,7 @@
 
 namespace CurrencyRates.Service.NbpCurrencyRates.Entity
 {
-    class CurrencyRate
+    public class CurrencyRate
     {
         const string XmlCurrencyName = "nazwa_waluty";
         const string XmlMultiplier = "przelicznik";

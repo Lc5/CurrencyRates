@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace CurrencyRates.Service.NbpCurrencyRates.Entity.Collection
 {
-    class CurrencyRateCollection : Collection<CurrencyRate>
+    public class CurrencyRateCollection : Collection<CurrencyRate>
     {
         const string XmlTableNumber = "numer_tabeli";
         const string XmlPublicationDate = "data_publikacji";

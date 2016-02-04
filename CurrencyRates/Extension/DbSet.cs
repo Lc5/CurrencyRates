@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CurrencyRates.Extension
 {
-    static class DbSet
+    public static class DbSet
     {
         public static IOrderedQueryable<Rate> FindLatest(this DbSet<Rate> rates)
         {

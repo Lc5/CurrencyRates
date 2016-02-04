@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace CurrencyRates.Service.NbpCurrencyRates
 {
-    class Synchronizer
+    public class Synchronizer
     {
         Context Context;
         FileFetcher FileFetcher;

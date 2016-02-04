@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace CurrencyRates
 {
-    class Context : DbContext
+    public class Context : DbContext
     {
         public Context() : base() {}
 

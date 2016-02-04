@@ -7,7 +7,7 @@ using System.Net;
 
 namespace CurrencyRates.Service.NbpCurrencyRates
 {
-    class FileFetcher
+    public class FileFetcher
     {
         const string Url = "http://www.nbp.pl/kursy/xml/";
         const string FileListPath = "dir.txt";
