@@ -23,9 +23,12 @@ namespace CurrencyRates.Extension
         [Test]
         public void TestTruncateThrowsException()
         {
-            Assert.Throws<System.ArgumentOutOfRangeException>(
+            var exception = Assert.Throws<System.ArgumentOutOfRangeException>(
                 () => "Example".Truncate(3)    
             );
+
+            Assert.AreEqual("maxLength", exception.ParamName);
+            StringAssert.Contains("maxLength must be at least 4", exception.Message);
         }
     }
 }
