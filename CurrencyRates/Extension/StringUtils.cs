@@ -9,6 +9,11 @@
                 return value;
             }
 
+            if (maxLength < 4)
+            {
+                throw new System.ArgumentOutOfRangeException("maxLength", maxLength, "maxLength must be at least 4");
+            }
+         
             return value.Length <= maxLength ? value : value.Substring(0, maxLength - 3) + "...";
         }
     }
