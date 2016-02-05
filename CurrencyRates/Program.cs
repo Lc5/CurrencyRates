@@ -1,4 +1,5 @@
 ﻿using CurrencyRates.Extension;
+using CurrencyRates.Query;
 using CurrencyRates.Service;
 using CurrencyRates.Service.NbpCurrencyRates;
 using System;

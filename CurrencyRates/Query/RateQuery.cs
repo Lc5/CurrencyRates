@@ -2,9 +2,9 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace CurrencyRates.Extension
+namespace CurrencyRates.Query
 {
-    public static class DbSet
+    public static class RateQuery
     {
         public static IOrderedQueryable<Rate> FindLatest(this DbSet<Rate> rates)
         {

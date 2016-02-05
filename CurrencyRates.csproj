@@ -72,7 +72,7 @@
     <Compile Include="CurrencyRates\DbContext.cs" />
     <Compile Include="CurrencyRates\Entity\Comparer\CurrencyComparer.cs" />
     <Compile Include="CurrencyRates\Enum\Action.cs" />
-    <Compile Include="CurrencyRates\Extension\DbSet.cs" />
+    <Compile Include="CurrencyRates\Query\RateQuery.cs" />
     <Compile Include="CurrencyRates\Program.cs" />
     <Compile Include="CurrencyRates\Entity\Currency.cs" />
     <Compile Include="CurrencyRates\Entity\File.cs" />
