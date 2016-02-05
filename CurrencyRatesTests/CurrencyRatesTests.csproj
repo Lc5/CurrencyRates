@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="CurrencyRates\Entity\Comparer\CurrencyComparerTest.cs" />
     <Compile Include="CurrencyRates\Extension\StringUtilsTest.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\Collection\CurrencyRatesCollectionTest.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
