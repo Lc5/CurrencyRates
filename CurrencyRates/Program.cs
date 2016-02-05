@@ -71,7 +71,7 @@ namespace CurrencyRates
 
             foreach (var rate in rates)
             {
-                output += String.Format(format, rate.Date.ToString("dd-MM-yyyy"), rate.CurrencyCode + " " + rate.Currency.Name.Truncate(36), rate.Value + " PLN", rate.Multiplier);
+                output += String.Format(format, rate.Date.ToString("dd-MM-yyyy"), rate.CurrencyCode + " " + StringUtils.Truncate(rate.Currency.Name, 36), rate.Value + " PLN", rate.Multiplier);
             }
 
             output += separator;

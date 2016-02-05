@@ -2,7 +2,7 @@
 {
     public static class StringUtils
     {
-        public static string Truncate(this string value, int maxLength)
+        public static string Truncate(string value, int maxLength)
         {
             if (string.IsNullOrEmpty(value))
             {

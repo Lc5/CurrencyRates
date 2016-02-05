@@ -8,7 +8,7 @@ namespace CurrencyRates.Extension
         [TestCaseSource("TruncateTestCases")]
         public void TestTruncate(string value, int maxLength, string truncated)
         {
-            Assert.AreEqual(truncated, value.Truncate(maxLength));
+            Assert.AreEqual(truncated, StringUtils.Truncate(value, maxLength));
         }
 
         static object[] TruncateTestCases =
@@ -24,7 +24,7 @@ namespace CurrencyRates.Extension
         public void TestTruncateThrowsException()
         {
             var exception = Assert.Throws<System.ArgumentOutOfRangeException>(
-                () => "Example".Truncate(3)    
+                () => StringUtils.Truncate("Example", 3)    
             );
 
             Assert.AreEqual("maxLength", exception.ParamName);
