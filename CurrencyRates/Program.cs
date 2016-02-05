@@ -1,7 +1,7 @@
 ﻿using CurrencyRates.Extension;
+using CurrencyRates.Service;
 using CurrencyRates.Service.NbpCurrencyRates;
 using System;
-using System.Net;
 
 namespace CurrencyRates
 {
@@ -22,7 +22,7 @@ namespace CurrencyRates
             {
                 using (var context = new Context())
                 {
-                    var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient()));
+                    var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient(new System.Net.WebClient())));
 
                     switch (action)
                     {

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net;
 
 namespace CurrencyRates.Service.NbpCurrencyRates
 {
@@ -12,9 +11,9 @@ namespace CurrencyRates.Service.NbpCurrencyRates
         const string Url = "http://www.nbp.pl/kursy/xml/";
         const string FileListPath = "dir.txt";
 
-        WebClient WebClient;
+        IWebClient WebClient;
 
-        public FileFetcher(WebClient webClient)
+        public FileFetcher(IWebClient webClient)
         {
             WebClient = webClient;
         }

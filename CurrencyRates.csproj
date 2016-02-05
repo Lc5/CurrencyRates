@@ -77,6 +77,8 @@
     <Compile Include="CurrencyRates\Entity\Currency.cs" />
     <Compile Include="CurrencyRates\Entity\File.cs" />
     <Compile Include="CurrencyRates\Entity\Rate.cs" />
+    <Compile Include="CurrencyRates\Service\IWebClient.cs" />
+    <Compile Include="CurrencyRates\Service\WebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRate.cs" />
     <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\Collection\CurrencyRateCollection.cs" />
