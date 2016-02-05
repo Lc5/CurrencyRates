@@ -1,4 +1,4 @@
-﻿using CurrencyRates.Extension;
+﻿using CurrencyRates.Presentation;
 using CurrencyRates.Query;
 using CurrencyRates.Service;
 using CurrencyRates.Service.NbpCurrencyRates;
@@ -36,13 +36,13 @@ namespace CurrencyRates
                             break;
 
                         case Enum.Action.Show:
-                            output = Show(context);
+                            output = RateRenderer.Render(context.Rates.FindLatest());
                             break;
 
                         default:
                             synchronizer.SyncFiles();
                             synchronizer.SyncRatesFromUnprocessedFiles();
-                            output = Show(context);
+                            output = RateRenderer.Render(context.Rates.FindLatest());
                             break;
                     }
                 }
@@ -56,28 +56,7 @@ namespace CurrencyRates
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
-        }
-
-        static string Show(Context context)
-        {
-            var rates = context.Rates.FindLatest();
-            var separator = new String('-', 79) + "\n";
-            var format = "| {0, -10} | {1, -40} | {2, 11} | {3, 5} |\n";
-            var output = "";
-
-            output += separator;
-            output += String.Format(format, "Date", "Currency", "Value", "Multi");
-            output += separator;
-
-            foreach (var rate in rates)
-            {
-                output += String.Format(format, rate.Date.ToString("dd-MM-yyyy"), rate.CurrencyCode + " " + StringUtils.Truncate(rate.Currency.Name, 36), rate.Value + " PLN", rate.Multiplier);
-            }
-
-            output += separator;
-
-            return output;
-        }
+        }      
     }
 }
 
