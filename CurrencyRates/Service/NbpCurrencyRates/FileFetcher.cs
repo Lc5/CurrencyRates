@@ -53,11 +53,6 @@ namespace CurrencyRates.Service.NbpCurrencyRates
             var filenames = FetchFilenames().Except(existingFilenames);
 
             return FetchFiles(filenames);
-        }
-
-        ~FileFetcher()
-        {
-            WebClient.Dispose();
-        }
+        }   
     }
 }

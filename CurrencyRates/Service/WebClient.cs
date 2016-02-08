@@ -13,10 +13,5 @@
         {
             return Client.DownloadString(address);
         }
-
-        public void Dispose()
-        {
-            Client.Dispose();
-        }
     }
 }

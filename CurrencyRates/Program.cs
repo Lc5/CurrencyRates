@@ -23,27 +23,30 @@ namespace CurrencyRates
             {
                 using (var context = new Context())
                 {
-                    var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient(new System.Net.WebClient())));
-
-                    switch (action)
+                    using (var systemWebclient = new System.Net.WebClient())
                     {
-                        case Enum.Action.Fetch:
-                            synchronizer.SyncFiles();
-                            break;
+                        var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient(systemWebclient)));
 
-                        case Enum.Action.Process:
-                            synchronizer.SyncRatesFromUnprocessedFiles();
-                            break;
+                        switch (action)
+                        {
+                            case Enum.Action.Fetch:
+                                synchronizer.SyncFiles();
+                                break;
 
-                        case Enum.Action.Show:
-                            output = RateRenderer.Render(context.Rates.FindLatest());
-                            break;
+                            case Enum.Action.Process:
+                                synchronizer.SyncRatesFromUnprocessedFiles();
+                                break;
 
-                        default:
-                            synchronizer.SyncFiles();
-                            synchronizer.SyncRatesFromUnprocessedFiles();
-                            output = RateRenderer.Render(context.Rates.FindLatest());
-                            break;
+                            case Enum.Action.Show:
+                                output = RateRenderer.Render(context.Rates.FindLatest());
+                                break;
+
+                            default:
+                                synchronizer.SyncFiles();
+                                synchronizer.SyncRatesFromUnprocessedFiles();
+                                output = RateRenderer.Render(context.Rates.FindLatest());
+                                break;
+                        }
                     }
                 }
                      
