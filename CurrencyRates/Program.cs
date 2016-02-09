@@ -22,32 +22,30 @@ namespace CurrencyRates
             try
             {
                 using (var context = new Context())
-                {
-                    using (var systemWebclient = new System.Net.WebClient())
+                using (var systemWebclient = new System.Net.WebClient())
+                {           
+                    var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient(systemWebclient)));
+
+                    switch (action)
                     {
-                        var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient(systemWebclient)));
+                        case Enum.Action.Fetch:
+                            synchronizer.SyncFiles();
+                            break;
 
-                        switch (action)
-                        {
-                            case Enum.Action.Fetch:
-                                synchronizer.SyncFiles();
-                                break;
+                        case Enum.Action.Process:
+                            synchronizer.SyncRatesFromUnprocessedFiles();
+                            break;
 
-                            case Enum.Action.Process:
-                                synchronizer.SyncRatesFromUnprocessedFiles();
-                                break;
+                        case Enum.Action.Show:
+                            output = RateRenderer.Render(context.Rates.FindLatest());
+                            break;
 
-                            case Enum.Action.Show:
-                                output = RateRenderer.Render(context.Rates.FindLatest());
-                                break;
-
-                            default:
-                                synchronizer.SyncFiles();
-                                synchronizer.SyncRatesFromUnprocessedFiles();
-                                output = RateRenderer.Render(context.Rates.FindLatest());
-                                break;
-                        }
-                    }
+                        default:
+                            synchronizer.SyncFiles();
+                            synchronizer.SyncRatesFromUnprocessedFiles();
+                            output = RateRenderer.Render(context.Rates.FindLatest());
+                            break;
+                    }                
                 }
                      
                 Console.WriteLine(output);         
