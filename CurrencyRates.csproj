@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrencyRates\IDbContext.cs" />
     <Compile Include="CurrencyRates\Migrations\Configuration.cs" />
     <Compile Include="CurrencyRates\DbContext.cs" />
     <Compile Include="CurrencyRates\Entity\Comparer\CurrencyComparer.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="CurrencyRates\Entity\File.cs" />
     <Compile Include="CurrencyRates\Entity\Rate.cs" />
     <Compile Include="CurrencyRates\Service\IWebClient.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\IFileFetcher.cs" />
     <Compile Include="CurrencyRates\Service\WebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRate.cs" />

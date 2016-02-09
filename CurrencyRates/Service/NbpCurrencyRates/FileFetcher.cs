@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace CurrencyRates.Service.NbpCurrencyRates
 {
-    public class FileFetcher
+    public class FileFetcher : IFileFetcher
     {
         const string Url = "http://www.nbp.pl/kursy/xml/";
         const string FileListPath = "dir.txt";
@@ -18,7 +18,20 @@ namespace CurrencyRates.Service.NbpCurrencyRates
             WebClient = webClient;
         }
 
-        public IEnumerable<string> FetchFilenames()
+        public IEnumerable<File> FetchAllFilesExcept(IEnumerable<string> existingFilenames)
+        {
+            var filenames = FetchFilenames().Except(existingFilenames);
+            var files = new Collection<File>();
+
+            foreach (var filename in filenames)
+            {
+                files.Add(FetchFile(filename));
+            }
+
+            return files;
+        }
+
+        IEnumerable<string> FetchFilenames()
         {
             var filenames = WebClient
                 .DownloadString(Url + FileListPath)
@@ -29,30 +42,11 @@ namespace CurrencyRates.Service.NbpCurrencyRates
             return filenames;
         }
 
-        public File FetchFile(string filename)
+        File FetchFile(string filename)
         {
             var content = WebClient.DownloadString(Url + filename);
 
             return new File() { Name = filename, Content = content };
         }
-
-        public IEnumerable<File> FetchFiles(IEnumerable<string> filenames)
-        {
-            var files = new Collection<File>();
-
-            foreach (string filename in filenames)
-            {
-                files.Add(FetchFile(filename));
-            }
-
-            return files;
-        }
-
-        public IEnumerable<File> FetchAllFilesExcept(IEnumerable<string> existingFilenames)
-        {
-            var filenames = FetchFilenames().Except(existingFilenames);
-
-            return FetchFiles(filenames);
-        }   
     }
 }

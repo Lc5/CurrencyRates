@@ -53,6 +53,7 @@
     <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\Collection\CurrencyRatesCollectionTest.cs" />
     <Compile Include="CurrencyRates\Service\NbpCurrencyRates\Entity\CurrencyRateTest.cs" />
     <Compile Include="CurrencyRates\Service\NbpCurrencyRates\FileFetcherTest.cs" />
+    <Compile Include="CurrencyRates\Service\NbpCurrencyRates\SynchronizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
