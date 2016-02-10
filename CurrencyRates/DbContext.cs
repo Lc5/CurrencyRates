@@ -3,13 +3,13 @@ using System.Data.Entity;
 
 namespace CurrencyRates
 {
-    public class Context : DbContext, IDbContext
+    public class Context : DbContext
     {
         public Context() : base() {}
 
-        public DbSet<Currency> Currencies { get; set; }
-        public DbSet<File> Files { get; set; }
-        public DbSet<Rate> Rates { get; set; }
+        public virtual DbSet<Currency> Currencies { get; set; }
+        public virtual DbSet<File> Files { get; set; }
+        public virtual DbSet<Rate> Rates { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

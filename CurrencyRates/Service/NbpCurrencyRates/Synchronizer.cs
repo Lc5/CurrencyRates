@@ -1,7 +1,6 @@
 ﻿using CurrencyRates.Entity;
 using CurrencyRates.Entity.Comparer;
 using CurrencyRates.Service.NbpCurrencyRates.Entity.Collection;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CurrencyRates.Service.NbpCurrencyRates
@@ -9,9 +8,9 @@ namespace CurrencyRates.Service.NbpCurrencyRates
     public class Synchronizer
     {
         Context Context;
-        FileFetcher FileFetcher;
+        IFileFetcher FileFetcher;
 
-        public Synchronizer(Context context, FileFetcher fileFetcher)
+        public Synchronizer(Context context, IFileFetcher fileFetcher)
         {
             Context = context;
             FileFetcher = fileFetcher;
@@ -31,18 +30,15 @@ namespace CurrencyRates.Service.NbpCurrencyRates
 
         public void SyncRatesFromUnprocessedFiles()
         {
-            SyncRatesFromFiles(Context.Files.Where(f => !f.Processed));
-        }
+            var files = Context.Files.Where(f => !f.Processed).ToList();
 
-        public void SyncRatesFromFiles(IEnumerable<File> files)
-        {
-            foreach (var file in files.ToList())
+            foreach (var file in files)
             {
                 SyncRatesFromFile(file);
             }
         }
 
-        public void SyncRatesFromFile(File file)
+        void SyncRatesFromFile(File file)
         {
             var currencyRateCollection = CurrencyRateCollection.BuildFromXml(file.Content);
 
