@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates", "CurrencyRates.csproj", "{2292268A-DE9C-4410-8F15-ED0A59C86FDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{D397C835-834B-4BEA-AD5E-92AD819031DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRatesTests", "CurrencyRatesTests\CurrencyRatesTests.csproj", "{C87DEC97-075B-448B-BC8A-5E6D94328072}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{2292268A-DE9C-4410-8F15-ED0A59C86FDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{C87DEC97-075B-448B-BC8A-5E6D94328072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D397C835-834B-4BEA-AD5E-92AD819031DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D397C835-834B-4BEA-AD5E-92AD819031DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D397C835-834B-4BEA-AD5E-92AD819031DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D397C835-834B-4BEA-AD5E-92AD819031DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2292268A-DE9C-4410-8F15-ED0A59C86FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2292268A-DE9C-4410-8F15-ED0A59C86FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2292268A-DE9C-4410-8F15-ED0A59C86FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
