@@ -57,18 +57,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Comparer\CurrencyComparerTest.cs" />
-    <Compile Include="Extension\StringUtilsTest.cs" />
-    <Compile Include="Service\NbpCurrencyRates\Entity\Collection\CurrencyRatesCollectionTest.cs" />
-    <Compile Include="Service\NbpCurrencyRates\Entity\CurrencyRateTest.cs" />
-    <Compile Include="Service\NbpCurrencyRates\FileFetcherTest.cs" />
-    <Compile Include="Service\NbpCurrencyRates\SynchronizerTest.cs" />
+    <Compile Include="Model\Entity\Comparer\CurrencyComparerTest.cs" />
+    <Compile Include="Common\Extension\StringUtilsTest.cs" />
+    <Compile Include="NbpCurrencyRates\Service\Entity\Collection\CurrencyRatesCollectionTest.cs" />
+    <Compile Include="NbpCurrencyRates\Service\Entity\CurrencyRateTest.cs" />
+    <Compile Include="NbpCurrencyRates\Service\FileFetcherTest.cs" />
+    <Compile Include="Common\Service\SynchronizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Library\Library.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{83488145-3a6e-48ac-9656-542cae95c841}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console\Console.csproj">
+      <Project>{d397c835-834b-4bea-ad5e-92ad819031df}</Project>
+      <Name>Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
       <Project>{2292268a-de9c-4410-8f15-ed0a59c86fdf}</Project>
-      <Name>Library</Name>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NbpCurrencyRates\NbpCurrencyRates.csproj">
+      <Project>{1afde5c2-4308-4323-8a9f-cb1e726d9540}</Project>
+      <Name>NbpCurrencyRates</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

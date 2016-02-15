@@ -1,5 +1,5 @@
-﻿using CurrencyRates.Library.Entity;
-using CurrencyRates.Library.Extension;
+﻿using CurrencyRates.Model.Entity;
+using CurrencyRates.Common.Extension;
 using System;
 using System.Collections.Generic;
 

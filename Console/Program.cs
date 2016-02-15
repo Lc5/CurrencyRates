@@ -1,7 +1,9 @@
-﻿using CurrencyRates.Presentation;
-using CurrencyRates.Library.Query;
-using CurrencyRates.Library.Service;
-using CurrencyRates.Library.Service.NbpCurrencyRates;
+﻿using CurrencyRates.Model;
+using CurrencyRates.Model.Query;
+using CurrencyRates.Common.Service;
+using CurrencyRates.NbpCurrencyRates.Net;
+using CurrencyRates.NbpCurrencyRates.Service;
+using CurrencyRates.Presentation;
 using System;
 
 namespace CurrencyRates.Console
