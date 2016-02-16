@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using CurrencyRates.Common.Extension;
+﻿using CurrencyRates.Common.Extension;
 using CurrencyRates.Model.Entity;
+using System;
+using System.Collections.Generic;
 
 namespace CurrencyRates.Console.Presentation
 {

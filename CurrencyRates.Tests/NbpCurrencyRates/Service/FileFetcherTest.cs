@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using CurrencyRates.NbpCurrencyRates.Net;
+﻿using CurrencyRates.NbpCurrencyRates.Net;
 using CurrencyRates.NbpCurrencyRates.Service;
 using Moq;
 using NUnit.Framework;
+using System.Linq;
 
 namespace CurrencyRates.Tests.NbpCurrencyRates.Service
 {

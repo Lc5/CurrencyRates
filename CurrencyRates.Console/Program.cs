@@ -1,10 +1,10 @@
-﻿using CurrencyRates.Model;
-using CurrencyRates.Model.Query;
+﻿using CurrencyRates.Console.Presentation;
 using CurrencyRates.Common.Service;
+using CurrencyRates.Model;
+using CurrencyRates.Model.Query;
 using CurrencyRates.NbpCurrencyRates.Net;
 using CurrencyRates.NbpCurrencyRates.Service;
 using System;
-using CurrencyRates.Console.Presentation;
 
 namespace CurrencyRates.Console
 {

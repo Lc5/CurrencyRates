@@ -1,6 +1,6 @@
-﻿using System;
-using CurrencyRates.NbpCurrencyRates.Service.Entity.Collection;
+﻿using CurrencyRates.NbpCurrencyRates.Service.Entity.Collection;
 using NUnit.Framework;
+using System;
 
 namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity.Collection
 {

@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using CurrencyRates.Common.Service;
+﻿using CurrencyRates.Common.Service;
 using CurrencyRates.Model;
 using CurrencyRates.Model.Entity;
 using CurrencyRates.NbpCurrencyRates.Service;
-using Moq;
-using NUnit.Framework;
 using File = CurrencyRates.Model.Entity.File;
+using Moq;
 using NbpServiceEntity = CurrencyRates.NbpCurrencyRates.Service.Entity;
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace CurrencyRates.Tests.Common.Service
 {
