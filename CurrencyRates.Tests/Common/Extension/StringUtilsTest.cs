@@ -9,7 +9,7 @@ namespace CurrencyRates.Tests.Common.Extension
         [TestCaseSource(nameof(TruncateTestCases))]
         public void TestTruncate(string value, int maxLength, string truncated)
         {
-            Assert.AreEqual(truncated, StringUtils.Truncate(value, maxLength));
+            Assert.That(StringUtils.Truncate(value, maxLength), Is.EqualTo(truncated));
         }
 
         static readonly object[] TruncateTestCases =
@@ -28,8 +28,8 @@ namespace CurrencyRates.Tests.Common.Extension
                 () => StringUtils.Truncate("Example", 3)    
             );
 
-            Assert.AreEqual("maxLength", exception.ParamName);
-            StringAssert.Contains("maxLength must be at least 4", exception.Message);
+            Assert.That(exception.ParamName, Is.EqualTo("maxLength"));
+            Assert.That(exception.Message, Does.Contain("maxLength must be at least 4"));
         }
     }
 }

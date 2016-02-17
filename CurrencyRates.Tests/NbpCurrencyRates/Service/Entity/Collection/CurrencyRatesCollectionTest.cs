@@ -10,7 +10,7 @@ namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity.Collection
         [Test]
         public void TestBuildFromXml()
         {
-            var xml = @"
+            const string xml = @"
                 <tabela_kursow typ=""A"" uid=""16a011"">
                     <numer_tabeli>011/A/NBP/2016</numer_tabeli>
                     <data_publikacji>2016-01-19</data_publikacji>

@@ -59,8 +59,8 @@ namespace CurrencyRates.Tests.Common.Service
             {
                 new File() { Name = "a001z160105.xml", Processed = true },
                 new File() { Name = "b001z160105.xml", Processed = true },
-                new File() { Name = "a002z160105.xml", Content = GetSampleXmlContent(), Processed = false },
-                new File() { Name = "b002z160105.xml", Content = GetSampleXmlContent(), Processed = false }
+                new File() { Name = "a002z160105.xml", Content = SampleXmlContent, Processed = false },
+                new File() { Name = "b002z160105.xml", Content = SampleXmlContent, Processed = false }
             };
 
             Mock<DbSet<Currency>> currencies = BuildDbSetMock(existingCurrencies.AsQueryable());
@@ -84,9 +84,8 @@ namespace CurrencyRates.Tests.Common.Service
             Assert.That(existingFiles.Count(f => !f.Processed), Is.EqualTo(0));
         }
 
-        string GetSampleXmlContent()
-        {
-            return @"<?xml version=""1.0"" encoding=""ISO-8859-2""?>
+        const string SampleXmlContent =
+            @"<?xml version=""1.0"" encoding=""ISO-8859-2""?>
                 <tabela_kursow typ=""A"" uid=""16a011"">
                    <numer_tabeli>011/A/NBP/2016</numer_tabeli>
                    <data_publikacji>2016-01-19</data_publikacji>
@@ -103,8 +102,7 @@ namespace CurrencyRates.Tests.Common.Service
                       <kurs_sredni>4,4490</kurs_sredni>
                    </pozycja>                 
                 </tabela_kursow>
-            ";
-        }
+            ";     
 
         Mock<DbSet<TEntity>> BuildDbSetMock<TEntity>(IQueryable<TEntity> items) where TEntity : class
         {

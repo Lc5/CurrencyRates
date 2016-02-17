@@ -9,7 +9,7 @@ namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity
         [Test]
         public void TestBuildFromXml()
         {
-            var xml = @"
+            const string xml = @"
                 <pozycja>
                     <nazwa_waluty>dolar amerykański</nazwa_waluty>
                     <przelicznik>1</przelicznik>

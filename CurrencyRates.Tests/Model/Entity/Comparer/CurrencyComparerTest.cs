@@ -14,7 +14,7 @@ namespace CurrencyRates.Tests.Model.Entity.Comparer
             var second = new Currency() { Code = "PLN" };     
             var comparer = new CurrencyComparer();
 
-            Assert.True(comparer.Equals(first, second));
+            Assert.That(comparer.Equals(first, second));
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace CurrencyRates.Tests.Model.Entity.Comparer
             var second = new Currency() { Code = "CHF" };
             var comparer = new CurrencyComparer();
 
-            Assert.False(comparer.Equals(first, second));
+            Assert.That(!comparer.Equals(first, second));
         }
 
         [Test]
@@ -33,7 +33,7 @@ namespace CurrencyRates.Tests.Model.Entity.Comparer
             var currency = new Currency() { Code = "PLN" };
             var comparer = new CurrencyComparer();
             
-            Assert.AreEqual(currency.Code.GetHashCode(), comparer.GetHashCode(currency));
+            Assert.That(currency.Code.GetHashCode(), Is.EqualTo(comparer.GetHashCode(currency)));
         }
     }
 }
