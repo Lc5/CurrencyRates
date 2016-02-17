@@ -8,3 +8,16 @@
 /CurrencyRatesTests/bin/Debug
 /CurrencyRatesTests/obj/Debug
 /packages
+/CurrencyRates.Tests/obj/Debug
+/CurrencyRates.Tests/bin/Debug
+/CurrencyRates.Common/obj/Debug
+/CurrencyRates.Common/bin/Debug
+/.vs/config
+/CurrencyRates.Console/obj/Debug
+/CurrencyRates.Console/bin/Debug
+/CurrencyRates.Model/packages
+/CurrencyRates.Model/obj/Debug
+/CurrencyRates.Model/bin/Debug
+/CurrencyRates.NbpCurrencyRates/obj/Debug
+/CurrencyRates.NbpCurrencyRates/bin/Debug
+/CurrencyRates.sln.DotSettings.user
