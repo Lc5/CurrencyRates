@@ -7,7 +7,7 @@ namespace CurrencyRates.Model.Entity
     public class Rate
     {
         public int Id { get; set; }
-        [Column(TypeName = "Date"), Index("Date_CurrencyCode", 1, IsUnique = true)]
+        [Column(TypeName = "Date"), DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}"), Index("Date_CurrencyCode", 1, IsUnique = true)]
         public DateTime Date { get; set; }
         public decimal Value { get; set; }
         public int Multiplier { get; set; }

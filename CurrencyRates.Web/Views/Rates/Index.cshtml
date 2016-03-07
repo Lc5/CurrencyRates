@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CurrencyRates.Model.Entity.Rate>
+
+@{
+    ViewBag.Title = "Latest rates";
+}
+
+<h2>Latest rates</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Currency.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Currency.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Multiplier)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value) PLN
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Multiplier)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
