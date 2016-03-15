@@ -4,7 +4,7 @@ namespace CurrencyRates.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public RedirectToRouteResult Index()
         {
             return RedirectToAction("Index", "Rates");
         }      
