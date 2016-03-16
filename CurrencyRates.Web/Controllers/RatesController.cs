@@ -9,7 +9,12 @@ namespace CurrencyRates.Web.Controllers
 {
     public class RatesController : Controller
     {
-        private readonly Context Context = new Context();
+        private readonly Context Context;
+
+        public RatesController(Context context)
+        {
+            Context = context;
+        }
 
         public ActionResult Index()
         {
