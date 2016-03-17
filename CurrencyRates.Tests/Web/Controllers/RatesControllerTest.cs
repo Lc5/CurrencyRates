@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using CurrencyRates.Model;
+﻿using CurrencyRates.Model;
 using CurrencyRates.Model.Entity;
 using CurrencyRates.Web.Controllers;
 using Moq;
 using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
