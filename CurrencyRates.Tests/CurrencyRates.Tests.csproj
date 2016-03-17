@@ -94,6 +94,7 @@
     <Compile Include="NbpCurrencyRates\Service\FileFetcherTest.cs" />
     <Compile Include="Common\Service\SynchronizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestUtils.cs" />
     <Compile Include="Web\App_Start\RouteConfigTest.cs" />
     <Compile Include="Web\Controllers\HomeControllerTest.cs" />
     <Compile Include="Web\Controllers\RatesControllerTest.cs" />

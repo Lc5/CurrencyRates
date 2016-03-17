@@ -32,8 +32,7 @@ namespace CurrencyRates.Tests.Common.Service
 
             var context = new Mock<Context>();
             var fileFetcher = new Mock<IFileFetcher>();
-
-            Mock<DbSet<File>> fileDbSet = BuildDbSetMock(existingFiles.AsQueryable());
+            var fileDbSet = TestUtils.BuildDbSetMock(existingFiles.AsQueryable());
 
             context.Setup(c => c.Files).Returns(fileDbSet.Object);
             fileFetcher.Setup(ff => ff.FetchAllFilesExcept(new[] { existingFiles[0].Name, existingFiles[1].Name })).Returns(newFiles);
@@ -63,10 +62,9 @@ namespace CurrencyRates.Tests.Common.Service
                 new File() { Name = "b002z160105.xml", Content = SampleXmlContent, Processed = false }
             };
 
-            Mock<DbSet<Currency>> currencies = BuildDbSetMock(existingCurrencies.AsQueryable());
-            Mock<DbSet<File>> files = BuildDbSetMock(existingFiles.AsQueryable());
-            Mock<DbSet<Rate>> rates = BuildDbSetMock(Enumerable.Empty<Rate>().AsQueryable());
-
+            var currencies = TestUtils.BuildDbSetMock(existingCurrencies.AsQueryable());
+            var files = TestUtils.BuildDbSetMock(existingFiles.AsQueryable());
+            var rates = TestUtils.BuildDbSetMock(Enumerable.Empty<Rate>().AsQueryable());
             var context = new Mock<Context>();
             var fileFetcher = new Mock<IFileFetcher>();
 
@@ -103,16 +101,5 @@ namespace CurrencyRates.Tests.Common.Service
                    </pozycja>                 
                 </tabela_kursow>
             ";     
-
-        Mock<DbSet<TEntity>> BuildDbSetMock<TEntity>(IQueryable<TEntity> items) where TEntity : class
-        {
-            var mockSet = new Mock<DbSet<TEntity>>();
-            mockSet.As<IQueryable<TEntity>>().Setup(m => m.Provider).Returns(items.Provider);
-            mockSet.As<IQueryable<TEntity>>().Setup(m => m.Expression).Returns(items.Expression);
-            mockSet.As<IQueryable<TEntity>>().Setup(m => m.ElementType).Returns(items.ElementType);
-            mockSet.As<IQueryable<TEntity>>().Setup(m => m.GetEnumerator()).Returns(items.GetEnumerator);
-
-            return mockSet;
-        }
     }
 }

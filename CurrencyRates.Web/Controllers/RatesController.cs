@@ -2,7 +2,6 @@
 using System.Net;
 using System.Web.Mvc;
 using CurrencyRates.Model;
-using CurrencyRates.Model.Entity;
 using CurrencyRates.Model.Query;
 
 namespace CurrencyRates.Web.Controllers
@@ -16,7 +15,7 @@ namespace CurrencyRates.Web.Controllers
             Context = context;
         }
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var rates = Context.Rates.FindLatest();
 
@@ -30,7 +29,7 @@ namespace CurrencyRates.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Rate rate = Context.Rates.Find(id);
+            var rate = Context.Rates.Find(id);
 
             if (rate == null)
             {
