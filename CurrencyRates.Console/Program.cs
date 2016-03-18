@@ -1,9 +1,9 @@
-﻿using CurrencyRates.Console.Presentation;
+﻿using Castle.Windsor;
+using Castle.Windsor.Installer;
+using CurrencyRates.Console.Presentation;
 using CurrencyRates.Common.Service;
 using CurrencyRates.Model;
 using CurrencyRates.Model.Query;
-using CurrencyRates.NbpCurrencyRates.Net;
-using CurrencyRates.NbpCurrencyRates.Service;
 using System;
 
 namespace CurrencyRates.Console
@@ -19,14 +19,17 @@ namespace CurrencyRates.Console
                 action = (Enum.Action) System.Enum.Parse(typeof(Enum.Action), args[0], true);
             }
 
-            var output = "";
+            var container = new WindsorContainer();
+            container.Install(FromAssembly.This());
 
+            var output = "";
+                               
             try
             {
-                using (var context = new Context())
-                using (var systemWebclient = new System.Net.WebClient())
-                {           
-                    var synchronizer = new Synchronizer(context, new FileFetcher(new WebClient(systemWebclient)));
+                using (container)
+                using (var context = container.Resolve<Context>())
+                {
+                    var synchronizer = container.Resolve<Synchronizer>();
 
                     switch (action)
                     {
@@ -47,14 +50,14 @@ namespace CurrencyRates.Console
                             synchronizer.SyncRatesFromUnprocessedFiles();
                             output = RateRenderer.Render(context.Rates.FindLatest());
                             break;
-                    }                
+                    }
                 }
 
-                System.Console.WriteLine(output);         
+                System.Console.WriteLine(output);
             }
             catch (Exception e)
             {
-                System.Console.WriteLine(e.ToString());             
+                System.Console.WriteLine(e.ToString());
             }
 
             System.Console.WriteLine("Press any key to exit...");
