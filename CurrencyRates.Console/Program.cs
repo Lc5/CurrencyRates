@@ -25,10 +25,10 @@ namespace CurrencyRates.Console
             var output = "";
                                
             try
-            {
+            {             
                 using (container)
-                using (var context = container.Resolve<Context>())
                 {
+                    var context = container.Resolve<Context>();
                     var synchronizer = container.Resolve<Synchronizer>();
 
                     switch (action)
