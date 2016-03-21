@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using Castle.Core;
+﻿using Castle.Core;
+using Castle.Core.Internal;
 using Castle.MicroKernel;
 using Castle.Windsor;
 using CurrencyRates.Web.Controllers;
 using CurrencyRates.Web.Installers;
 using NUnit.Framework;
-using Castle.Core.Internal;
+using System;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace CurrencyRates.Tests.Web.Installers
 {
