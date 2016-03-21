@@ -8,6 +8,7 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using System.Web.Mvc;
+using CurrencyRates.Web.Plumbing;
 
 namespace CurrencyRates.Tests.Web.Installers
 {
@@ -19,6 +20,12 @@ namespace CurrencyRates.Tests.Web.Installers
         public void SetUp()
         {
             ContainerWithControllers = new WindsorContainer().Install(new ControllersInstaller());
+        }
+
+        [Test]
+        public void TestControllerBuilderUsesWindsorControllerFactory()
+        {
+            Assert.That(ControllerBuilder.Current.GetControllerFactory(), Is.InstanceOf<WindsorControllerFactory>());
         }
 
         [Test]
