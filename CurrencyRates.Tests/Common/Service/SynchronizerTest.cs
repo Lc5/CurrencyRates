@@ -2,12 +2,12 @@
 using CurrencyRates.Model;
 using CurrencyRates.Model.Entity;
 using CurrencyRates.NbpCurrencyRates.Service;
+using CurrencyRates.Tests.TestUtils;
 using File = CurrencyRates.Model.Entity.File;
 using Moq;
 using NbpServiceEntity = CurrencyRates.NbpCurrencyRates.Service.Entity;
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace CurrencyRates.Tests.Common.Service
@@ -32,7 +32,7 @@ namespace CurrencyRates.Tests.Common.Service
 
             var context = new Mock<Context>();
             var fileFetcher = new Mock<IFileFetcher>();
-            var fileDbSet = TestUtils.BuildDbSetMock(existingFiles.AsQueryable());
+            var fileDbSet = DbSetMockBuilder.Build(existingFiles.AsQueryable());
 
             context.Setup(c => c.Files).Returns(fileDbSet.Object);
             fileFetcher.Setup(ff => ff.FetchAllFilesExcept(new[] { existingFiles[0].Name, existingFiles[1].Name })).Returns(newFiles);
@@ -62,9 +62,9 @@ namespace CurrencyRates.Tests.Common.Service
                 new File() { Name = "b002z160105.xml", Content = SampleXmlContent, Processed = false }
             };
 
-            var currencies = TestUtils.BuildDbSetMock(existingCurrencies.AsQueryable());
-            var files = TestUtils.BuildDbSetMock(existingFiles.AsQueryable());
-            var rates = TestUtils.BuildDbSetMock(Enumerable.Empty<Rate>().AsQueryable());
+            var currencies = DbSetMockBuilder.Build(existingCurrencies.AsQueryable());
+            var files = DbSetMockBuilder.Build(existingFiles.AsQueryable());
+            var rates = DbSetMockBuilder.Build(Enumerable.Empty<Rate>().AsQueryable());
             var context = new Mock<Context>();
             var fileFetcher = new Mock<IFileFetcher>();
 

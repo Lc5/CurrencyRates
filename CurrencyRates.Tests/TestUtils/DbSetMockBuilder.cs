@@ -2,11 +2,11 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace CurrencyRates.Tests
+namespace CurrencyRates.Tests.TestUtils
 {
-    internal static class TestUtils
+    internal static class DbSetMockBuilder
     {
-        public static Mock<DbSet<TEntity>> BuildDbSetMock<TEntity>(IQueryable<TEntity> items) where TEntity : class
+        public static Mock<DbSet<TEntity>> Build<TEntity>(IQueryable<TEntity> items) where TEntity : class
         {
             var mockSet = new Mock<DbSet<TEntity>>();
             mockSet.As<IQueryable<TEntity>>().Setup(m => m.Provider).Returns(items.Provider);

@@ -1,5 +1,6 @@
 ﻿using CurrencyRates.Model;
 using CurrencyRates.Model.Entity;
+using CurrencyRates.Tests.TestUtils;
 using CurrencyRates.Web.Controllers;
 using Moq;
 using NUnit.Framework;
@@ -22,7 +23,7 @@ namespace CurrencyRates.Tests.Web.Controllers
                 new Rate() { CurrencyCode = "EUR" },
                 new Rate() { CurrencyCode = "USD" }
             };
-            var contextRates = TestUtils.BuildDbSetMock(rates.AsQueryable());
+            var contextRates = DbSetMockBuilder.Build(rates.AsQueryable());
   
             context.Setup(c => c.Rates).Returns(contextRates.Object);
 
@@ -41,7 +42,7 @@ namespace CurrencyRates.Tests.Web.Controllers
             {
                 new Rate() { Id = 123, CurrencyCode = "EUR" }
             };
-            var contextRates = TestUtils.BuildDbSetMock(rates.AsQueryable());
+            var contextRates = DbSetMockBuilder.Build(rates.AsQueryable());
 
             contextRates.Setup(cr => cr
                 .Find(It.IsAny<object[]>()))
@@ -72,7 +73,7 @@ namespace CurrencyRates.Tests.Web.Controllers
         public void TestDetailsWithNotExistingId()
         {
             var context = new Mock<Context>();      
-            var contextRates = TestUtils.BuildDbSetMock(Enumerable.Empty<Rate>().AsQueryable());
+            var contextRates = DbSetMockBuilder.Build(Enumerable.Empty<Rate>().AsQueryable());
 
             context.Setup(c => c.Rates).Returns(contextRates.Object);
 
