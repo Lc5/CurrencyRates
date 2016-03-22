@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace CurrencyRates.Tests.Web.Installers
 {
+    [TestFixture]
     class ControllersInstallerTest
     {
         IWindsorContainer ContainerWithControllers;

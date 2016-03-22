@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\Action.cs" />
-    <Compile Include="Installers\WindsorInstaller.cs" />
+    <Compile Include="Installers\ClassesInstaller.cs" />
     <Compile Include="Presentation\RateRenderer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

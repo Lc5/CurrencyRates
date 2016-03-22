@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\Installers\ClassesInstallerTest.cs" />
     <Compile Include="Model\Entity\Comparer\CurrencyComparerTest.cs" />
     <Compile Include="Common\Extension\StringUtilsTest.cs" />
     <Compile Include="NbpCurrencyRates\Service\Entity\Collection\CurrencyRatesCollectionTest.cs" />

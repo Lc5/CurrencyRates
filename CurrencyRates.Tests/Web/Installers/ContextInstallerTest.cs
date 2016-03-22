@@ -8,6 +8,7 @@ using NUnit.Framework;
 
 namespace CurrencyRates.Tests.Web.Installers
 {
+    [TestFixture]
     class ContextInstallerTest
     {
         IWindsorContainer ContainerWithContext;
