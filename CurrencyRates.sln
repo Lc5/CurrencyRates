@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates.Common", "CurrencyRates.Common\CurrencyRates.Common.csproj", "{83488145-3A6E-48AC-9656-542CAE95C841}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates.Base", "CurrencyRates.Base\CurrencyRates.Base.csproj", "{83488145-3A6E-48AC-9656-542CAE95C841}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates.Console", "CurrencyRates.Console\CurrencyRates.Console.csproj", "{D397C835-834B-4BEA-AD5E-92AD819031DF}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates.Tests", "CurrencyRates.Tests\CurrencyRates.Tests.csproj", "{C87DEC97-075B-448B-BC8A-5E6D94328072}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates.Web", "CurrencyRates.Web\CurrencyRates.Web.csproj", "{4AD6DFE1-8CC5-430D-91B7-010559ABAD39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyRates.WindowsService", "CurrencyRates.WindowsService\CurrencyRates.WindowsService.csproj", "{61415506-3C3A-4CD9-B150-BF7D2DC2CD86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{4AD6DFE1-8CC5-430D-91B7-010559ABAD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD6DFE1-8CC5-430D-91B7-010559ABAD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD6DFE1-8CC5-430D-91B7-010559ABAD39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61415506-3C3A-4CD9-B150-BF7D2DC2CD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61415506-3C3A-4CD9-B150-BF7D2DC2CD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61415506-3C3A-4CD9-B150-BF7D2DC2CD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61415506-3C3A-4CD9-B150-BF7D2DC2CD86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
