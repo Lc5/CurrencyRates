@@ -93,19 +93,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console\Installers\ClassesInstallerTest.cs" />
+    <Compile Include="Base\Installers\ClassesInstallerTest.cs" />
     <Compile Include="Model\Entity\Comparer\CurrencyComparerTest.cs" />
-    <Compile Include="Common\Extension\StringUtilsTest.cs" />
+    <Compile Include="Base\Extension\StringUtilsTest.cs" />
     <Compile Include="NbpCurrencyRates\Service\Entity\Collection\CurrencyRatesCollectionTest.cs" />
     <Compile Include="NbpCurrencyRates\Service\Entity\CurrencyRateTest.cs" />
     <Compile Include="NbpCurrencyRates\Service\FileFetcherTest.cs" />
-    <Compile Include="Common\Service\SynchronizerTest.cs" />
+    <Compile Include="Base\Service\SynchronizerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUtils\DbSetMockBuilder.cs" />
     <Compile Include="TestUtils\WindsorContainerExtension.cs" />
@@ -116,25 +112,29 @@
     <Compile Include="Web\Installers\ControllersInstallerTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CurrencyRates.Common\CurrencyRates.Common.csproj">
+    <ProjectReference Include="..\CurrencyRates.Base\CurrencyRates.Base.csproj">
       <Project>{83488145-3a6e-48ac-9656-542cae95c841}</Project>
-      <Name>Common</Name>
+      <Name>CurrencyRates.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyRates.Console\CurrencyRates.Console.csproj">
       <Project>{d397c835-834b-4bea-ad5e-92ad819031df}</Project>
-      <Name>Console</Name>
+      <Name>CurrencyRates.Console</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyRates.Model\CurrencyRates.Model.csproj">
       <Project>{2292268a-de9c-4410-8f15-ed0a59c86fdf}</Project>
-      <Name>Model</Name>
+      <Name>CurrencyRates.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyRates.NbpCurrencyRates\CurrencyRates.NbpCurrencyRates.csproj">
       <Project>{1afde5c2-4308-4323-8a9f-cb1e726d9540}</Project>
-      <Name>NbpCurrencyRates</Name>
+      <Name>CurrencyRates.NbpCurrencyRates</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyRates.Web\CurrencyRates.Web.csproj">
       <Project>{4AD6DFE1-8CC5-430D-91B7-010559ABAD39}</Project>
       <Name>CurrencyRates.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CurrencyRates.WindowsService\CurrencyRates.WindowsService.csproj">
+      <Project>{61415506-3c3a-4cd9-b150-bf7d2dc2cd86}</Project>
+      <Name>CurrencyRates.WindowsService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

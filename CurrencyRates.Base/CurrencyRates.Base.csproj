@@ -7,8 +7,8 @@
     <ProjectGuid>{83488145-3A6E-48AC-9656-542CAE95C841}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CurrencyRates.Common</RootNamespace>
-    <AssemblyName>CurrencyRates.Common</AssemblyName>
+    <RootNamespace>CurrencyRates.Base</RootNamespace>
+    <AssemblyName>CurrencyRates.Base</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -51,17 +59,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extension\StringUtils.cs" />
+    <Compile Include="Installers\ClassesInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Synchronizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CurrencyRates.Model\CurrencyRates.Model.csproj">
       <Project>{2292268a-de9c-4410-8f15-ed0a59c86fdf}</Project>
-      <Name>Model</Name>
+      <Name>CurrencyRates.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyRates.NbpCurrencyRates\CurrencyRates.NbpCurrencyRates.csproj">
       <Project>{1afde5c2-4308-4323-8a9f-cb1e726d9540}</Project>
-      <Name>NbpCurrencyRates</Name>
+      <Name>CurrencyRates.NbpCurrencyRates</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +79,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,4 +1,4 @@
-﻿using CurrencyRates.Common.Extension;
+﻿using CurrencyRates.Base.Extension;
 using CurrencyRates.Model.Entity;
 using System.Collections.Generic;
 using System.Text;

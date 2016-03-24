@@ -5,7 +5,7 @@ using CurrencyRates.NbpCurrencyRates.Service;
 using CurrencyRates.NbpCurrencyRates.Service.Entity.Collection;
 using System.Linq;
 
-namespace CurrencyRates.Common.Service
+namespace CurrencyRates.Base.Service
 {
     public class Synchronizer
     {
@@ -16,6 +16,12 @@ namespace CurrencyRates.Common.Service
         {
             Context = context;
             FileFetcher = fileFetcher;
+        }
+
+        public void SyncAll()
+        {
+            SyncFiles();
+            SyncRatesFromUnprocessedFiles();
         }
 
         public void SyncFiles()

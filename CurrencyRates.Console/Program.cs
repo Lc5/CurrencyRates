@@ -1,7 +1,7 @@
 ﻿using Castle.Windsor;
 using Castle.Windsor.Installer;
 using CurrencyRates.Console.Presentation;
-using CurrencyRates.Common.Service;
+using CurrencyRates.Base.Service;
 using CurrencyRates.Model;
 using CurrencyRates.Model.Query;
 using System;
@@ -20,7 +20,7 @@ namespace CurrencyRates.Console
             }
 
             var container = new WindsorContainer();
-            container.Install(FromAssembly.This());
+            container.Install(FromAssembly.InThisApplication());
 
             var output = "";
                                
@@ -46,8 +46,7 @@ namespace CurrencyRates.Console
                             break;
 
                         default:
-                            synchronizer.SyncFiles();
-                            synchronizer.SyncRatesFromUnprocessedFiles();
+                            synchronizer.SyncAll();
                             output = RateRenderer.Render(context.Rates.FindLatest());
                             break;
                     }

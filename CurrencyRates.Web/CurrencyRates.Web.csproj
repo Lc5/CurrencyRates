@@ -223,21 +223,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CurrencyRates.Common\CurrencyRates.Common.csproj">
+    <ProjectReference Include="..\CurrencyRates.Base\CurrencyRates.Base.csproj">
       <Project>{83488145-3a6e-48ac-9656-542cae95c841}</Project>
-      <Name>CurrencyRates.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CurrencyRates.Console\CurrencyRates.Console.csproj">
-      <Project>{d397c835-834b-4bea-ad5e-92ad819031df}</Project>
-      <Name>CurrencyRates.Console</Name>
+      <Name>CurrencyRates.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\CurrencyRates.Model\CurrencyRates.Model.csproj">
       <Project>{2292268a-de9c-4410-8f15-ed0a59c86fdf}</Project>
       <Name>CurrencyRates.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CurrencyRates.NbpCurrencyRates\CurrencyRates.NbpCurrencyRates.csproj">
-      <Project>{1afde5c2-4308-4323-8a9f-cb1e726d9540}</Project>
-      <Name>CurrencyRates.NbpCurrencyRates</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

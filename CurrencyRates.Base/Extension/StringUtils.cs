@@ -1,4 +1,4 @@
-﻿namespace CurrencyRates.Common.Extension
+﻿namespace CurrencyRates.Base.Extension
 {
     public static class StringUtils
     {

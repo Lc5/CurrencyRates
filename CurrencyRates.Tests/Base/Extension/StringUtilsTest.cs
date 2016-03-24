@@ -1,4 +1,4 @@
-﻿using CurrencyRates.Common.Extension;
+﻿using CurrencyRates.Base.Extension;
 using NUnit.Framework;
 
 namespace CurrencyRates.Tests.Common.Extension

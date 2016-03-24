@@ -1,12 +1,12 @@
 ﻿using Castle.Windsor;
-using CurrencyRates.Common.Service;
-using CurrencyRates.Console.Installers;
+using CurrencyRates.Base.Installers;
+using CurrencyRates.Base.Service;
 using CurrencyRates.Model;
 using CurrencyRates.NbpCurrencyRates.Net;
 using CurrencyRates.NbpCurrencyRates.Service;
 using NUnit.Framework;
 
-namespace CurrencyRates.Tests.Console.Installers
+namespace CurrencyRates.Tests.Base.Installers
 {
     [TestFixture]
     class ClassesInstallerTest

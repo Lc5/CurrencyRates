@@ -1,4 +1,4 @@
-﻿using CurrencyRates.Common.Service;
+﻿using CurrencyRates.Base.Service;
 using CurrencyRates.Model;
 using CurrencyRates.Model.Entity;
 using CurrencyRates.NbpCurrencyRates.Service;
