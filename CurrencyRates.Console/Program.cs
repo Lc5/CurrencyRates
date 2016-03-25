@@ -1,9 +1,9 @@
-﻿using CurrencyRates.Console.Presentation;
+﻿using CurrencyRates.Base;
 using CurrencyRates.Base.Service;
+using CurrencyRates.Console.Presentation;
 using CurrencyRates.Model;
 using CurrencyRates.Model.Query;
 using System;
-using CurrencyRates.Base;
 
 namespace CurrencyRates.Console
 {

@@ -1,6 +1,6 @@
-﻿using CurrencyRates.Base.Service;
+﻿using CurrencyRates.Base;
+using CurrencyRates.Base.Service;
 using System.ServiceProcess;
-using CurrencyRates.Base;
 
 namespace CurrencyRates.WindowsService
 {
