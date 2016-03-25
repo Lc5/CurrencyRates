@@ -10,7 +10,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CurrencyRates.Tests.Common.Service
+namespace CurrencyRates.Tests.Base.Service
 {
     [TestFixture]
     class SynchronizerTest

@@ -1,7 +1,7 @@
 ﻿using CurrencyRates.Base.Extension;
 using NUnit.Framework;
 
-namespace CurrencyRates.Tests.Common.Extension
+namespace CurrencyRates.Tests.Base.Extension
 {
     [TestFixture]
     class StringUtilsTest
