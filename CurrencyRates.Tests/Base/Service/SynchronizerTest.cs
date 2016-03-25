@@ -16,6 +16,30 @@ namespace CurrencyRates.Tests.Base.Service
     class SynchronizerTest
     {
         [Test]
+        public void TestSyncAll()
+        {
+            var existingFiles = new List<File>
+            {
+                new File() { Name = "a002z160105.xml", Content = SampleXmlContent, Processed = false }
+            };
+
+            var currencies = DbSetMockBuilder.Build(Enumerable.Empty<Currency>().AsQueryable());
+            var files = DbSetMockBuilder.Build(existingFiles.AsQueryable());
+            var rates = DbSetMockBuilder.Build(Enumerable.Empty<Rate>().AsQueryable());
+            var context = new Mock<Context>();
+            var fileFetcher = new Mock<IFileFetcher>();
+
+            context.Setup(c => c.Currencies).Returns(currencies.Object);
+            context.Setup(c => c.Files).Returns(files.Object);
+            context.Setup(c => c.Rates).Returns(rates.Object);
+
+            var synchronizer = new Synchronizer(context.Object, fileFetcher.Object);
+            synchronizer.SyncAll();
+
+            context.Verify(c => c.SaveChanges(), Times.Exactly(2));
+        }
+
+        [Test]
         public void TestSyncFiles()
         {
             var existingFiles = new List<File>
