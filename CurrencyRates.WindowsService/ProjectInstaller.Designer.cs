@@ -6,20 +6,18 @@ namespace CurrencyRates.WindowsService
 {
     partial class ProjectInstaller
     {
-        IContainer components = null;
-        ServiceProcessInstaller serviceProcessInstaller;
-        ServiceInstaller serviceInstaller;
+        IContainer Components = null;
     
         void InitializeComponent()
         {
-            serviceProcessInstaller = new ServiceProcessInstaller()
+            var serviceProcessInstaller = new ServiceProcessInstaller()
             {
                 Account = ServiceAccount.LocalSystem,
                 Password = null,
                 Username = null
             };
 
-            serviceInstaller = new ServiceInstaller()
+            var serviceInstaller = new ServiceInstaller()
             {
                 Description = "CurrencyRates Scheduler",
                 DisplayName = "CurrencyRates Scheduler",
@@ -28,14 +26,13 @@ namespace CurrencyRates.WindowsService
             };
     
             Installers.AddRange(new Installer[] {serviceProcessInstaller, serviceInstaller});
-
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (Components != null))
             {
-                components.Dispose();
+                Components.Dispose();
             }
 
             base.Dispose(disposing);

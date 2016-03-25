@@ -8,7 +8,7 @@ namespace CurrencyRates.WindowsService
     public partial class Scheduler : ServiceBase
     {
         static int EventId;
-        Synchronizer Synchronizer;
+        readonly Synchronizer Synchronizer;
 
         public Scheduler(Synchronizer synchronizer)
         {
@@ -18,7 +18,7 @@ namespace CurrencyRates.WindowsService
 
         protected override void OnStart(string[] args)
         {
-            eventLog.WriteEntry(GetType().Name + " started.", EventLogEntryType.Information, ++EventId);
+            EventLog.WriteEntry(GetType().Name + " started.", EventLogEntryType.Information, ++EventId);
 
             var timer = new Timer() { Interval = 60000 };
             timer.Elapsed += OnTimer;
@@ -27,13 +27,13 @@ namespace CurrencyRates.WindowsService
 
         protected override void OnStop()
         {
-            eventLog.WriteEntry(GetType().Name + " stopped.", EventLogEntryType.Information, ++EventId);
+            EventLog.WriteEntry(GetType().Name + " stopped.", EventLogEntryType.Information, ++EventId);
         }
 
         void OnTimer(object sender, ElapsedEventArgs args)
         {
             Synchronizer.SyncAll();
-            eventLog.WriteEntry("Synchronized rates.", EventLogEntryType.Information, ++EventId);
+            EventLog.WriteEntry("Synchronized rates.", EventLogEntryType.Information, ++EventId);
         }
     }
 }
