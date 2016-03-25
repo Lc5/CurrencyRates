@@ -1,8 +1,6 @@
-﻿using Castle.Windsor;
-using Castle.Windsor.Installer;
-using CurrencyRates.Base.Service;
+﻿using CurrencyRates.Base.Service;
 using System.ServiceProcess;
-
+using CurrencyRates.Base;
 
 namespace CurrencyRates.WindowsService
 {
@@ -10,15 +8,15 @@ namespace CurrencyRates.WindowsService
     {
         static void Main()
         {
-            var container = new WindsorContainer();
-            container.Install(FromAssembly.InThisApplication());
-
-            var servicesToRun = new ServiceBase[]
+            using (var container = ContainerBootstrapper.Bootstrap().Container)
             {
-                new Scheduler(container.Resolve<Synchronizer>())
-            };
+                var servicesToRun = new ServiceBase[]
+                {
+                    new Scheduler(container.Resolve<Synchronizer>())
+                };
 
-            ServiceBase.Run(servicesToRun);
+                ServiceBase.Run(servicesToRun);
+            }
         }
     }
 }

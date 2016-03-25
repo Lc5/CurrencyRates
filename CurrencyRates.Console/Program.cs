@@ -1,10 +1,9 @@
-﻿using Castle.Windsor;
-using Castle.Windsor.Installer;
-using CurrencyRates.Console.Presentation;
+﻿using CurrencyRates.Console.Presentation;
 using CurrencyRates.Base.Service;
 using CurrencyRates.Model;
 using CurrencyRates.Model.Query;
 using System;
+using CurrencyRates.Base;
 
 namespace CurrencyRates.Console
 {
@@ -18,15 +17,12 @@ namespace CurrencyRates.Console
             {
                 action = (Enum.Action) System.Enum.Parse(typeof(Enum.Action), args[0], true);
             }
-
-            var container = new WindsorContainer();
-            container.Install(FromAssembly.InThisApplication());
-
+           
             var output = "";
                                
             try
             {             
-                using (container)
+                using (var container = ContainerBootstrapper.Bootstrap().Container)
                 {
                     var context = container.Resolve<Context>();
                     var synchronizer = container.Resolve<Synchronizer>();
