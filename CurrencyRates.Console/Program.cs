@@ -10,18 +10,18 @@ namespace CurrencyRates.Console
     public class Program
     {
         static void Main(string[] args)
-        {       
-            var action = Enum.Action.Default;
-
-            if (args.Length > 0)
-            {
-                action = (Enum.Action) System.Enum.Parse(typeof(Enum.Action), args[0], true);
-            }
-           
-            var output = "";
-                               
+        {                                                
             try
-            {             
+            {
+                var action = Enum.Action.Default;
+
+                if (args.Length > 0)
+                {
+                    action = (Enum.Action)System.Enum.Parse(typeof(Enum.Action), args[0], true);
+                }
+
+                var output = "";
+
                 using (var container = ContainerBootstrapper.Bootstrap().Container)
                 {
                     var context = container.Resolve<Context>();

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerBootstrapper.cs" />
+    <Compile Include="Extension\ExceptionExtension.cs" />
     <Compile Include="Extension\StringUtils.cs" />
     <Compile Include="Installers\ClassesInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

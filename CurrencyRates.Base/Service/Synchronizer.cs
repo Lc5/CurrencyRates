@@ -1,8 +1,10 @@
-﻿using CurrencyRates.Model;
+﻿using CurrencyRates.Base.Extension;
+using CurrencyRates.Model;
 using CurrencyRates.Model.Entity;
 using CurrencyRates.Model.Entity.Comparer;
 using CurrencyRates.NbpCurrencyRates.Service;
 using CurrencyRates.NbpCurrencyRates.Service.Entity.Collection;
+using System;
 using System.Linq;
 
 namespace CurrencyRates.Base.Service
@@ -42,7 +44,14 @@ namespace CurrencyRates.Base.Service
 
             foreach (var file in files)
             {
-                SyncRatesFromFile(file);
+                try
+                {
+                    SyncRatesFromFile(file);
+                }
+                catch (Exception e)
+                {
+                    e.Log();
+                }
             }
         }
 
