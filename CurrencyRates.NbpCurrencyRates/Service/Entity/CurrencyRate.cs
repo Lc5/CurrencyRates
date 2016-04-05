@@ -29,7 +29,7 @@ namespace CurrencyRates.NbpCurrencyRates.Service.Entity
             return currencyRate;
         }
 
-        public static string GetXsd()
+        static string GetXsd()
         {
             return @"
                 <xs:schema xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
