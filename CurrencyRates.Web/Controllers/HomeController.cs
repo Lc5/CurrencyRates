@@ -1,12 +1,12 @@
-﻿using System.Web.Mvc;
-
-namespace CurrencyRates.Web.Controllers
+﻿namespace CurrencyRates.Web.Controllers
 {
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         public RedirectToRouteResult Index()
         {
-            return RedirectToAction("Index", "Rates");
-        }      
+            return this.RedirectToAction("Index", "Rates");
+        }
     }
 }

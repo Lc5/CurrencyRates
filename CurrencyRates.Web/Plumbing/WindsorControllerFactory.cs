@@ -1,32 +1,33 @@
-using Castle.Windsor;
-using System;
-using System.Web.Mvc;
-using System.Web.Routing;
-
 namespace CurrencyRates.Web.Plumbing
 {
+    using System;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
+    using Castle.Windsor;
+
     public class WindsorControllerFactory : DefaultControllerFactory
     {
-        private readonly IWindsorContainer Container;
+        private readonly IWindsorContainer container;
 
         public WindsorControllerFactory(IWindsorContainer container)
         {
-            Container = container;
-        }
-
-        protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
-        {
-            if (controllerType != null && Container.Kernel.HasComponent(controllerType))
-            {
-                return (IController) Container.Resolve(controllerType);
-            }
-
-            return base.GetControllerInstance(requestContext, controllerType);
+            this.container = container;
         }
 
         public override void ReleaseController(IController controller)
         {
-            Container.Release(controller);
+            this.container.Release(controller);
+        }
+
+        protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
+        {
+            if (controllerType != null && this.container.Kernel.HasComponent(controllerType))
+            {
+                return (IController)this.container.Resolve(controllerType);
+            }
+
+            return base.GetControllerInstance(requestContext, controllerType);
         }
     }
 }

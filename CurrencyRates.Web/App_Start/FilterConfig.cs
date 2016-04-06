@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace CurrencyRates.Web
+﻿namespace CurrencyRates.Web
 {
+    using System.Web.Mvc;
+
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)

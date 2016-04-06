@@ -1,14 +1,21 @@
-﻿using Castle.Windsor;
-using Castle.Windsor.Installer;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-
-namespace CurrencyRates.Web
+﻿namespace CurrencyRates.Web
 {
-    public class MvcApplication : System.Web.HttpApplication
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+
+    using Castle.Windsor;
+    using Castle.Windsor.Installer;
+
+    public class MvcApplication : HttpApplication
     {
-        static IWindsorContainer Container;
+        private static IWindsorContainer container;
+
+        protected void Application_End()
+        {
+            container.Dispose();
+        }
 
         protected void Application_Start()
         {
@@ -19,15 +26,9 @@ namespace CurrencyRates.Web
             BootstrapContainer();
         }
 
-        protected void Application_End()
+        private static void BootstrapContainer()
         {
-            Container.Dispose();
-        }
-
-        static void BootstrapContainer()
-        {
-            Container = new WindsorContainer()
-                .Install(FromAssembly.This());
+            container = new WindsorContainer().Install(FromAssembly.This());
         }
     }
 }

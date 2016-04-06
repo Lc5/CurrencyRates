@@ -1,11 +1,12 @@
-using Castle.MicroKernel.Registration;
-using Castle.MicroKernel.SubSystems.Configuration;
-using Castle.Windsor;
-using System.Web.Mvc;
-
 namespace CurrencyRates.Web.Installers
 {
-    using Plumbing;
+    using System.Web.Mvc;
+
+    using Castle.MicroKernel.Registration;
+    using Castle.MicroKernel.SubSystems.Configuration;
+    using Castle.Windsor;
+
+    using CurrencyRates.Web.Plumbing;
 
     public class ControllersInstaller : IWindsorInstaller
     {
@@ -16,8 +17,7 @@ namespace CurrencyRates.Web.Installers
                     .FromThisAssembly()
                     .BasedOn<IController>()
                     .If(c => c.Name.EndsWith("Controller"))
-                    .LifestyleTransient()
-            );
+                    .LifestyleTransient());
 
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
         }
