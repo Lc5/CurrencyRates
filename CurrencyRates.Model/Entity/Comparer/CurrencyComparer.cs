@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CurrencyRates.Model.Entity.Comparer
+﻿namespace CurrencyRates.Model.Entity.Comparer
 {
+    using System.Collections.Generic;
+
     public class CurrencyComparer : IEqualityComparer<Currency>
     {
         public bool Equals(Currency first, Currency second)

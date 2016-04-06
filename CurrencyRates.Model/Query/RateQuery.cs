@@ -1,9 +1,10 @@
-﻿using CurrencyRates.Model.Entity;
-using System.Data.Entity;
-using System.Linq;
-
-namespace CurrencyRates.Model.Query
+﻿namespace CurrencyRates.Model.Query
 {
+    using System.Data.Entity;
+    using System.Linq;
+
+    using CurrencyRates.Model.Entity;
+
     public static class RateQuery
     {
         public static IOrderedQueryable<Rate> FindLatest(this DbSet<Rate> rates)

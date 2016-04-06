@@ -6,8 +6,8 @@ namespace CurrencyRates.Model.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "CurrencyRates.Context";
+            this.AutomaticMigrationsEnabled = true;
+            this.ContextKey = "CurrencyRates.Context";
         }
     }
 }
