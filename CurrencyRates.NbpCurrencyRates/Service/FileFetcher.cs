@@ -43,11 +43,11 @@
 
         private IEnumerable<string> FetchFilenames()
         {
-            var filenames =
-                this.webClient.DownloadString(Url + FileListPath)
-                    .Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
-                    .Where(s => s.StartsWith("a") || s.StartsWith("b"))
-                    .Select(f => f + ".xml");
+            var filenames = this.webClient
+                .DownloadString(Url + FileListPath)
+                .Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                .Where(s => s.StartsWith("a") || s.StartsWith("b"))
+                .Select(f => f + ".xml");
 
             return filenames;
         }
