@@ -1,26 +1,29 @@
-﻿using CurrencyRates.Base;
-using CurrencyRates.Base.Service;
-using CurrencyRates.Console.Presentation;
-using CurrencyRates.Model;
-using CurrencyRates.Model.Query;
-using System;
-
-namespace CurrencyRates.Console
+﻿namespace CurrencyRates.Console
 {
-    public class Program
+    using System;
+
+    using CurrencyRates.Base;
+    using CurrencyRates.Base.Service;
+    using CurrencyRates.Console.Presentation;
+    using CurrencyRates.Model;
+    using CurrencyRates.Model.Query;
+
+    using Action = CurrencyRates.Console.Enum.Action;
+
+    public static class Program
     {
-        static void Main(string[] args)
-        {                                                
+        private static void Main(string[] args)
+        {
             try
             {
-                var action = Enum.Action.Default;
+                var action = Action.Default;
 
                 if (args.Length > 0)
                 {
-                    action = (Enum.Action)System.Enum.Parse(typeof(Enum.Action), args[0], true);
+                    action = (Action)System.Enum.Parse(typeof(Action), args[0], true);
                 }
 
-                var output = "";
+                var output = string.Empty;
 
                 using (var container = ContainerBootstrapper.Bootstrap().Container)
                 {
@@ -29,15 +32,15 @@ namespace CurrencyRates.Console
 
                     switch (action)
                     {
-                        case Enum.Action.Fetch:
+                        case Action.Fetch:
                             synchronizer.SyncFiles();
                             break;
 
-                        case Enum.Action.Process:
+                        case Action.Process:
                             synchronizer.SyncRatesFromUnprocessedFiles();
                             break;
 
-                        case Enum.Action.Show:
+                        case Action.Show:
                             output = RateRenderer.Render(context.Rates.FindLatest());
                             break;
 
@@ -48,17 +51,15 @@ namespace CurrencyRates.Console
                     }
                 }
 
-                System.Console.WriteLine(output);
+                Console.WriteLine(output);
             }
             catch (Exception e)
             {
-                System.Console.WriteLine(e.ToString());
+                Console.WriteLine(e.ToString());
             }
 
-            System.Console.WriteLine("Press any key to exit...");
-            System.Console.ReadKey();
-        }      
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+        }
     }
 }
-
-
