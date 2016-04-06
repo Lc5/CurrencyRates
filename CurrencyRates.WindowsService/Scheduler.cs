@@ -1,41 +1,44 @@
-﻿using CurrencyRates.Base.Service;
-using System.Diagnostics;
-using System.ServiceProcess;
-using System.Timers;
-
-namespace CurrencyRates.WindowsService
+﻿namespace CurrencyRates.WindowsService
 {
+    using System.Diagnostics;
+    using System.ServiceProcess;
+    using System.Timers;
+
+    using CurrencyRates.Base.Service;
+
     public partial class Scheduler : ServiceBase
     {
-        static int EventId;
-        readonly int Interval;
-        readonly Synchronizer Synchronizer;
+        private static int eventId;
+
+        private readonly int interval;
+
+        private readonly Synchronizer synchronizer;
 
         public Scheduler(Synchronizer synchronizer, int interval = 60000)
         {
-            Synchronizer = synchronizer;
-            Interval = interval;
-            InitializeComponent();
+            this.synchronizer = synchronizer;
+            this.interval = interval;
+            this.InitializeComponent();
         }
 
         protected override void OnStart(string[] args)
         {
-            EventLog.WriteEntry(GetType().FullName + " started.", EventLogEntryType.Information, ++EventId);
+            this.EventLog.WriteEntry(this.GetType().FullName + " started.", EventLogEntryType.Information, ++eventId);
 
-            var timer = new Timer() { Interval = Interval };
-            timer.Elapsed += OnTimer;
+            var timer = new Timer { Interval = this.interval };
+            timer.Elapsed += this.OnTimer;
             timer.Start();
         }
 
         protected override void OnStop()
         {
-            EventLog.WriteEntry(GetType().FullName + " stopped.", EventLogEntryType.Information, ++EventId);
+            this.EventLog.WriteEntry(this.GetType().FullName + " stopped.", EventLogEntryType.Information, ++eventId);
         }
 
-        void OnTimer(object sender, ElapsedEventArgs args)
+        private void OnTimer(object sender, ElapsedEventArgs args)
         {
-            Synchronizer.SyncAll();
-            EventLog.WriteEntry("Synchronized rates.", EventLogEntryType.Information, ++EventId);
+            this.synchronizer.SyncAll();
+            this.EventLog.WriteEntry("Synchronized rates.", EventLogEntryType.Information, ++eventId);
         }
     }
 }

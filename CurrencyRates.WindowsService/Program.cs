@@ -1,19 +1,17 @@
-﻿using CurrencyRates.Base;
-using CurrencyRates.Base.Service;
-using System.ServiceProcess;
-
-namespace CurrencyRates.WindowsService
+﻿namespace CurrencyRates.WindowsService
 {
-    static class Program
+    using System.ServiceProcess;
+
+    using CurrencyRates.Base;
+    using CurrencyRates.Base.Service;
+
+    public static class Program
     {
-        static void Main()
+        private static void Main()
         {
             using (var container = ContainerBootstrapper.Bootstrap().Container)
             {
-                var servicesToRun = new ServiceBase[]
-                {
-                    new Scheduler(container.Resolve<Synchronizer>())
-                };
+                var servicesToRun = new ServiceBase[] { new Scheduler(container.Resolve<Synchronizer>()) };
 
                 ServiceBase.Run(servicesToRun);
             }
