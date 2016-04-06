@@ -1,12 +1,13 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace CurrencyRates.Base.Extension
+﻿namespace CurrencyRates.Base.Extension
 {
+    using System;
+    using System.Diagnostics;
+
     public static class ExceptionExtension
     {
-        const string LogName = "Application";
-        const string EventSource = "Application";
+        private const string EventSource = "Application";
+
+        private const string LogName = "Application";
 
         public static void Log(this Exception exception)
         {
@@ -19,7 +20,7 @@ namespace CurrencyRates.Base.Extension
 
                 eventLog.Source = EventSource;
                 eventLog.WriteEntry(exception.ToString(), EventLogEntryType.Error);
-            }           
+            }
         }
     }
 }

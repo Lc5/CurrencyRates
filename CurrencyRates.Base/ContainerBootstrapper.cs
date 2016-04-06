@@ -1,14 +1,15 @@
-using Castle.Windsor;
-using Castle.Windsor.Installer;
-using System;
-
 namespace CurrencyRates.Base
 {
+    using System;
+
+    using Castle.Windsor;
+    using Castle.Windsor.Installer;
+
     public class ContainerBootstrapper : IContainerAccessor, IDisposable
     {
         private ContainerBootstrapper(IWindsorContainer container)
         {
-            Container = container;
+            this.Container = container;
         }
 
         public IWindsorContainer Container { get; }
@@ -22,7 +23,7 @@ namespace CurrencyRates.Base
 
         public void Dispose()
         {
-            Container.Dispose();
+            this.Container.Dispose();
         }
     }
 }

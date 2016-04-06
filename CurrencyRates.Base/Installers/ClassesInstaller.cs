@@ -1,13 +1,14 @@
-﻿using Castle.MicroKernel.Registration;
-using Castle.MicroKernel.SubSystems.Configuration;
-using Castle.Windsor;
-using CurrencyRates.Base.Service;
-using CurrencyRates.Model;
-using CurrencyRates.NbpCurrencyRates.Net;
-using CurrencyRates.NbpCurrencyRates.Service;
-
-namespace CurrencyRates.Base.Installers
+﻿namespace CurrencyRates.Base.Installers
 {
+    using Castle.MicroKernel.Registration;
+    using Castle.MicroKernel.SubSystems.Configuration;
+    using Castle.Windsor;
+
+    using CurrencyRates.Base.Service;
+    using CurrencyRates.Model;
+    using CurrencyRates.NbpCurrencyRates.Net;
+    using CurrencyRates.NbpCurrencyRates.Service;
+
     public class ClassesInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
