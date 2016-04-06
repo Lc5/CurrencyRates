@@ -1,10 +1,10 @@
-﻿using System.IO;
-using System.Xml.Linq;
-using System.Xml.Schema;
-
-namespace CurrencyRates.NbpCurrencyRates.Extension
+﻿namespace CurrencyRates.NbpCurrencyRates.Extension
 {
-    static class Xml
+    using System.IO;
+    using System.Xml.Linq;
+    using System.Xml.Schema;
+
+    internal static class Xml
     {
         public static void Validate(this XDocument xml, XmlSchema xmlSchema)
         {
@@ -18,7 +18,7 @@ namespace CurrencyRates.NbpCurrencyRates.Extension
             Validate(xml, BuildXmlSchema(schema));
         }
 
-        static XmlSchema BuildXmlSchema(string schema)
+        private static XmlSchema BuildXmlSchema(string schema)
         {
             return XmlSchema.Read(new StringReader(schema), null);
         }

@@ -1,53 +1,55 @@
-﻿using CurrencyRates.NbpCurrencyRates.Net;
-using CurrencyRates.NbpCurrencyRates.Service.Entity;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-
-namespace CurrencyRates.NbpCurrencyRates.Service
+﻿namespace CurrencyRates.NbpCurrencyRates.Service
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+
+    using CurrencyRates.NbpCurrencyRates.Net;
+    using CurrencyRates.NbpCurrencyRates.Service.Entity;
+
     public class FileFetcher : IFileFetcher
     {
-        const string Url = "http://www.nbp.pl/kursy/xml/";
-        const string FileListPath = "dir.txt";
+        private const string FileListPath = "dir.txt";
 
-        readonly IWebClient WebClient;
+        private const string Url = "http://www.nbp.pl/kursy/xml/";
+
+        private readonly IWebClient webClient;
 
         public FileFetcher(IWebClient webClient)
         {
-            WebClient = webClient;
+            this.webClient = webClient;
         }
 
         public IEnumerable<File> FetchAllFilesExcept(IEnumerable<string> existingFilenames)
         {
-            var filenames = FetchFilenames().Except(existingFilenames);
+            var filenames = this.FetchFilenames().Except(existingFilenames);
             var files = new Collection<File>();
 
             foreach (var filename in filenames)
             {
-                files.Add(FetchFile(filename));
+                files.Add(this.FetchFile(filename));
             }
 
             return files;
         }
 
-        IEnumerable<string> FetchFilenames()
+        private File FetchFile(string filename)
         {
-            var filenames = WebClient
-                .DownloadString(Url + FileListPath)
-                .Split(new[] {"\r\n"}, StringSplitOptions.RemoveEmptyEntries)
-                .Where(s => s.StartsWith("a") || s.StartsWith("b"))
-                .Select(f => f + ".xml");
+            var content = this.webClient.DownloadString(Url + filename);
 
-            return filenames;
+            return new File { Name = filename, Content = content };
         }
 
-        File FetchFile(string filename)
+        private IEnumerable<string> FetchFilenames()
         {
-            var content = WebClient.DownloadString(Url + filename);
+            var filenames =
+                this.webClient.DownloadString(Url + FileListPath)
+                    .Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries)
+                    .Where(s => s.StartsWith("a") || s.StartsWith("b"))
+                    .Select(f => f + ".xml");
 
-            return new File() { Name = filename, Content = content };
+            return filenames;
         }
     }
 }

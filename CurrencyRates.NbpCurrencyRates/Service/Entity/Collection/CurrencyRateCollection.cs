@@ -1,16 +1,20 @@
-﻿using CurrencyRates.NbpCurrencyRates.Extension;
-using System;
-using System.Collections.ObjectModel;
-using System.Xml.Linq;
-
-namespace CurrencyRates.NbpCurrencyRates.Service.Entity.Collection
+﻿namespace CurrencyRates.NbpCurrencyRates.Service.Entity.Collection
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Xml.Linq;
+
+    using CurrencyRates.NbpCurrencyRates.Extension;
+
     public class CurrencyRateCollection : Collection<CurrencyRate>
     {
-        public string TableNumber { get; private set; }
+        private CurrencyRateCollection()
+        {
+        }
+
         public DateTime PublicationDate { get; private set; }
 
-        CurrencyRateCollection() {}
+        public string TableNumber { get; private set; }
 
         public static CurrencyRateCollection BuildFromXml(string xmlString)
         {
@@ -18,9 +22,9 @@ namespace CurrencyRates.NbpCurrencyRates.Service.Entity.Collection
             xml.Validate(GetXsd());
             var xmlRoot = xml.Root;
 
-            var collection = new CurrencyRateCollection()
+            var collection = new CurrencyRateCollection
             {
-                TableNumber = xmlRoot.Element(NbpXml.TableNumber).Value,
+                TableNumber = xmlRoot.Element(NbpXml.TableNumber).Value, 
                 PublicationDate = DateTime.Parse(xmlRoot.Element(NbpXml.PublicationDate).Value)
             };
 
@@ -33,7 +37,7 @@ namespace CurrencyRates.NbpCurrencyRates.Service.Entity.Collection
             return collection;
         }
 
-        static string GetXsd()
+        private static string GetXsd()
         {
             return @"
                 <xs:schema xmlns:xs=""http://www.w3.org/2001/XMLSchema"">

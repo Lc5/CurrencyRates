@@ -1,16 +1,22 @@
-﻿using CurrencyRates.NbpCurrencyRates.Extension;
-using System.Xml.Linq;
-
-namespace CurrencyRates.NbpCurrencyRates.Service.Entity
+﻿namespace CurrencyRates.NbpCurrencyRates.Service.Entity
 {
+    using System.Xml.Linq;
+
+    using CurrencyRates.NbpCurrencyRates.Extension;
+
     public class CurrencyRate
     {
-        public string CurrencyName { get; private set; }
-        public int Multiplier { get; private set; }
-        public string CurrencyCode { get; private set; }
+        private CurrencyRate()
+        {
+        }
+
         public decimal AverageValue { get; private set; }
 
-        CurrencyRate() {}
+        public string CurrencyCode { get; private set; }
+
+        public string CurrencyName { get; private set; }
+
+        public int Multiplier { get; private set; }
 
         public static CurrencyRate BuildFromXml(string xmlString)
         {
@@ -20,16 +26,16 @@ namespace CurrencyRates.NbpCurrencyRates.Service.Entity
 
             var currencyRate = new CurrencyRate
             {
-                CurrencyName = xmlRoot.Element(NbpXml.CurrencyName).Value,
-                Multiplier = int.Parse(xmlRoot.Element(NbpXml.Multiplier).Value),
-                CurrencyCode = xmlRoot.Element(NbpXml.CurrencyCode).Value,
+                CurrencyName = xmlRoot.Element(NbpXml.CurrencyName).Value, 
+                Multiplier = int.Parse(xmlRoot.Element(NbpXml.Multiplier).Value), 
+                CurrencyCode = xmlRoot.Element(NbpXml.CurrencyCode).Value, 
                 AverageValue = decimal.Parse(xmlRoot.Element(NbpXml.AverageValue).Value)
             };
 
             return currencyRate;
         }
 
-        static string GetXsd()
+        private static string GetXsd()
         {
             return @"
                 <xs:schema xmlns:xs=""http://www.w3.org/2001/XMLSchema"">

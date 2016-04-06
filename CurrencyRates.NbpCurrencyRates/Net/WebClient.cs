@@ -1,24 +1,24 @@
-﻿using System;
-
-namespace CurrencyRates.NbpCurrencyRates.Net
+﻿namespace CurrencyRates.NbpCurrencyRates.Net
 {
+    using System;
+
     public class WebClient : IWebClient, IDisposable
     {
-        readonly System.Net.WebClient Client;
+        private readonly System.Net.WebClient client;
 
         public WebClient(System.Net.WebClient client)
         {
-            Client = client;
-        }    
-
-        public string DownloadString(string address)
-        {
-            return Client.DownloadString(address);
+            this.client = client;
         }
 
         public void Dispose()
         {
-            Client.Dispose();
+            this.client.Dispose();
+        }
+
+        public string DownloadString(string address)
+        {
+            return this.client.DownloadString(address);
         }
     }
 }
