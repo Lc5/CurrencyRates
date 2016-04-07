@@ -1,32 +1,36 @@
-﻿using Castle.Windsor;
-using CurrencyRates.Base.Installers;
-using CurrencyRates.Base.Service;
-using CurrencyRates.Model;
-using CurrencyRates.NbpCurrencyRates.Net;
-using CurrencyRates.NbpCurrencyRates.Service;
-using NUnit.Framework;
-
-namespace CurrencyRates.Tests.Base.Installers
+﻿namespace CurrencyRates.Tests.Base.Installers
 {
+    using Castle.Windsor;
+
+    using CurrencyRates.Base.Installers;
+    using CurrencyRates.Base.Service;
+    using CurrencyRates.Model;
+    using CurrencyRates.NbpCurrencyRates.Net;
+    using CurrencyRates.NbpCurrencyRates.Service;
+
+    using NUnit.Framework;
+
+    using WebClient = System.Net.WebClient;
+
     [TestFixture]
-    class ClassesInstallerTest
+    internal class ClassesInstallerTest
     {
-        IWindsorContainer Container;
+        private IWindsorContainer container;
 
         [SetUp]
         public void SetUp()
         {
-            Container = new WindsorContainer().Install(new ClassesInstaller());
-        }
+            this.container = new WindsorContainer().Install(new ClassesInstaller());
+        }       
 
         [Test]
         public void TestComponentsAreRegistered()
         {
-            Container.Resolve<Context>();
-            Container.Resolve<IFileFetcher>();
-            Container.Resolve<IWebClient>();
-            Container.Resolve<Synchronizer>();
-            Container.Resolve<System.Net.WebClient>();
+            this.container.Resolve<Context>();
+            this.container.Resolve<IFileFetcher>();
+            this.container.Resolve<IWebClient>();
+            this.container.Resolve<Synchronizer>();
+            this.container.Resolve<WebClient>();
         }
     }
 }

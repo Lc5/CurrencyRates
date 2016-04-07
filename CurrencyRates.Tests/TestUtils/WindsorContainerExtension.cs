@@ -1,10 +1,11 @@
-﻿using Castle.MicroKernel;
-using Castle.Windsor;
-using System;
-using System.Linq;
-
-namespace CurrencyRates.Tests.TestUtils
+﻿namespace CurrencyRates.Tests.TestUtils
 {
+    using System;
+    using System.Linq;
+
+    using Castle.MicroKernel;
+    using Castle.Windsor;
+
     internal static class WindsorContainerExtension
     {
         public static IHandler[] GetAllHandlers(this IWindsorContainer container)
@@ -23,6 +24,6 @@ namespace CurrencyRates.Tests.TestUtils
                 .Select(h => h.ComponentModel.Implementation)
                 .OrderBy(t => t.Name)
                 .ToArray();
-        }       
+        }
     }
 }

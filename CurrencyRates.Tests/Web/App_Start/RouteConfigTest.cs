@@ -1,23 +1,24 @@
-﻿using CurrencyRates.Web;
-using Moq;
-using NUnit.Framework;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace CurrencyRates.Tests.Web.App_Start
+﻿namespace CurrencyRates.Tests.Web.App_Start
 {
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+
+    using CurrencyRates.Web;
+
+    using Moq;
+
+    using NUnit.Framework;
+
     [TestFixture]
-    class RouteConfigTest
+    internal class RouteConfigTest
     {
         [Test]
         public void TestRouteToEmbeddedResources()
         {
             var mockContext = new Mock<HttpContextBase>();
 
-            mockContext
-                .Setup(c => c.Request.AppRelativeCurrentExecutionFilePath)
-                .Returns("~/handler.axd");
+            mockContext.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath).Returns("~/handler.axd");
 
             var routes = new RouteCollection();
             RouteConfig.RegisterRoutes(routes);
@@ -33,9 +34,7 @@ namespace CurrencyRates.Tests.Web.App_Start
         {
             var mockContext = new Mock<HttpContextBase>();
 
-            mockContext
-                .Setup(c => c.Request.AppRelativeCurrentExecutionFilePath)
-                .Returns("~/");
+            mockContext.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath).Returns("~/");
 
             var routes = new RouteCollection();
             RouteConfig.RegisterRoutes(routes);

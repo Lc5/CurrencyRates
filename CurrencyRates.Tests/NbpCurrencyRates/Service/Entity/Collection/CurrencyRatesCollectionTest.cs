@@ -1,16 +1,18 @@
-﻿using CurrencyRates.NbpCurrencyRates.Service.Entity.Collection;
-using NUnit.Framework;
-using System;
-
-namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity.Collection
+﻿namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity.Collection
 {
+    using System;
+
+    using CurrencyRates.NbpCurrencyRates.Service.Entity.Collection;
+
+    using NUnit.Framework;
+
     [TestFixture]
-    class CurrencyRatesCollectionTest
+    internal class CurrencyRatesCollectionTest
     {
         [Test]
         public void TestBuildFromXml()
         {
-            const string xml = @"
+            const string Xml = @"
                 <tabela_kursow typ=""A"" uid=""16a011"">
                     <numer_tabeli>011/A/NBP/2016</numer_tabeli>
                     <data_publikacji>2016-01-19</data_publikacji>
@@ -29,7 +31,7 @@ namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity.Collection
                 </tabela_kursow>
             ";
 
-            var currencyRateCollection = CurrencyRateCollection.BuildFromXml(xml);
+            var currencyRateCollection = CurrencyRateCollection.BuildFromXml(Xml);
 
             Assert.That(currencyRateCollection.TableNumber, Is.EqualTo("011/A/NBP/2016"));
             Assert.That(currencyRateCollection.PublicationDate, Is.EqualTo(DateTime.Parse("2016-01-19")));

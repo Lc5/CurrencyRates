@@ -1,9 +1,10 @@
-﻿using Moq;
-using System.Data.Entity;
-using System.Linq;
-
-namespace CurrencyRates.Tests.TestUtils
+﻿namespace CurrencyRates.Tests.TestUtils
 {
+    using System.Data.Entity;
+    using System.Linq;
+
+    using Moq;
+
     internal static class DbSetMockBuilder
     {
         public static Mock<DbSet<TEntity>> Build<TEntity>(IQueryable<TEntity> items) where TEntity : class

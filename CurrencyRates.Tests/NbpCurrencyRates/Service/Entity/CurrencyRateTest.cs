@@ -1,15 +1,16 @@
-﻿using CurrencyRates.NbpCurrencyRates.Service.Entity;
-using NUnit.Framework;
-
-namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity
+﻿namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity
 {
+    using CurrencyRates.NbpCurrencyRates.Service.Entity;
+
+    using NUnit.Framework;
+
     [TestFixture]
-    class CurrencyRateTest
+    internal class CurrencyRateTest
     {
         [Test]
         public void TestBuildFromXml()
         {
-            const string xml = @"
+            const string Xml = @"
                 <pozycja>
                     <nazwa_waluty>dolar amerykański</nazwa_waluty>
                     <przelicznik>1</przelicznik>
@@ -18,7 +19,7 @@ namespace CurrencyRates.Tests.NbpCurrencyRates.Service.Entity
                 </pozycja>
             ";
 
-            var currencyRate = CurrencyRate.BuildFromXml(xml);
+            var currencyRate = CurrencyRate.BuildFromXml(Xml);
 
             Assert.That(currencyRate.CurrencyName, Is.EqualTo("dolar amerykański"));
             Assert.That(currencyRate.Multiplier, Is.EqualTo(1));

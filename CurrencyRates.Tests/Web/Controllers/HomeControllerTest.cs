@@ -1,10 +1,11 @@
-﻿using CurrencyRates.Web.Controllers;
-using NUnit.Framework;
-
-namespace CurrencyRates.Tests.Web.Controllers
+﻿namespace CurrencyRates.Tests.Web.Controllers
 {
+    using CurrencyRates.Web.Controllers;
+
+    using NUnit.Framework;
+
     [TestFixture]
-    class HomeControllerTest
+    internal class HomeControllerTest
     {
         [Test]
         public void TestIndex()
