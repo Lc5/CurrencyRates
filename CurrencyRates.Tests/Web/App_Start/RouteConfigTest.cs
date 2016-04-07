@@ -11,7 +11,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class RouteConfigTest
+    public class RouteConfigTest
     {
         [Test]
         public void TestRouteToEmbeddedResources()

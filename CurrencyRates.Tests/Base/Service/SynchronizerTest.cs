@@ -16,7 +16,7 @@
     using NbpServiceEntity = CurrencyRates.NbpCurrencyRates.Service.Entity;
 
     [TestFixture]
-    internal class SynchronizerTest
+    public class SynchronizerTest
     {
         private const string SampleXmlContent = 
             @"<?xml version=""1.0"" encoding=""ISO-8859-2""?>

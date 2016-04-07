@@ -7,7 +7,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class StringUtilsTest
+    public class StringUtilsTest
     {
         private static readonly object[] TruncateTestCases =
         {

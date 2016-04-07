@@ -1,6 +1,6 @@
 ﻿namespace CurrencyRates.NbpCurrencyRates.Service.Entity
 {
-    internal static class NbpXml
+    public static class NbpXml
     {
         public const string AverageValue = "kurs_sredni";
 

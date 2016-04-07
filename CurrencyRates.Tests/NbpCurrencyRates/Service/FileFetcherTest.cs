@@ -10,7 +10,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class FileFetcherTest
+    public class FileFetcherTest
     {
         [Test]
         public void TestFetchAllFilesExcept()

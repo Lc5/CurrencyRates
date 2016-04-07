@@ -16,7 +16,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class ControllersInstallerTest
+    public class ControllersInstallerTest
     {
         private IWindsorContainer containerWithControllers;
 

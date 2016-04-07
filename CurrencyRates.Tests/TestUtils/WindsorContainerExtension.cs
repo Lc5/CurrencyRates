@@ -6,7 +6,7 @@
     using Castle.MicroKernel;
     using Castle.Windsor;
 
-    internal static class WindsorContainerExtension
+    public static class WindsorContainerExtension
     {
         public static IHandler[] GetAllHandlers(this IWindsorContainer container)
         {

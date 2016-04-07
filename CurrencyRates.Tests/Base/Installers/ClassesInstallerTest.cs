@@ -13,7 +13,7 @@
     using WebClient = System.Net.WebClient;
 
     [TestFixture]
-    internal class ClassesInstallerTest
+    public class ClassesInstallerTest
     {
         private IWindsorContainer container;
 

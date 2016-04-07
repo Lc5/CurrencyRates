@@ -5,7 +5,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class HomeControllerTest
+    public class HomeControllerTest
     {
         [Test]
         public void TestIndex()

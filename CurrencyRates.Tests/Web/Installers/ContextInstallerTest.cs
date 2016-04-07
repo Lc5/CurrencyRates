@@ -11,7 +11,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class ContextInstallerTest
+    public class ContextInstallerTest
     {
         private IWindsorContainer containerWithContext;
 

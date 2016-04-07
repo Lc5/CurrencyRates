@@ -7,7 +7,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class CurrencyRatesCollectionTest
+    public class CurrencyRatesCollectionTest
     {
         [Test]
         public void TestBuildFromXml()

@@ -15,7 +15,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class RatesControllerTest
+    public class RatesControllerTest
     {
         [Test]
         public void TestDetails()

@@ -5,7 +5,7 @@
 
     using Moq;
 
-    internal static class DbSetMockBuilder
+    public static class DbSetMockBuilder
     {
         public static Mock<DbSet<TEntity>> Build<TEntity>(IQueryable<TEntity> items) where TEntity : class
         {

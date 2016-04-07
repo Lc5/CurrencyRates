@@ -6,7 +6,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    internal class CurrencyComparerTest
+    public class CurrencyComparerTest
     {
         [Test]
         public void TestEquals()

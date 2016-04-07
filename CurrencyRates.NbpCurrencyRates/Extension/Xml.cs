@@ -4,7 +4,7 @@
     using System.Xml.Linq;
     using System.Xml.Schema;
 
-    internal static class Xml
+    public static class Xml
     {
         public static void Validate(this XDocument xml, XmlSchema xmlSchema)
         {
