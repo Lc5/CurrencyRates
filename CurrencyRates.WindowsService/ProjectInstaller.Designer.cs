@@ -1,14 +1,24 @@
-﻿using System.ComponentModel;
-using System.Configuration.Install;
-using System.ServiceProcess;
-
-namespace CurrencyRates.WindowsService
+﻿namespace CurrencyRates.WindowsService
 {
-    partial class ProjectInstaller
+    using System.ComponentModel;
+    using System.Configuration.Install;
+    using System.ServiceProcess;
+
+    public partial class ProjectInstaller
     {
-        IContainer Components = null;
-    
-        void InitializeComponent()
+        private IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (this.components != null))
+            {
+                this.components.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
         {
             var serviceProcessInstaller = new ServiceProcessInstaller()
             {
@@ -25,17 +35,7 @@ namespace CurrencyRates.WindowsService
                 StartType = ServiceStartMode.Automatic
             };
     
-            Installers.AddRange(new Installer[] {serviceProcessInstaller, serviceInstaller});
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (Components != null))
-            {
-                Components.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }
+            Installers.AddRange(new Installer[] { serviceProcessInstaller, serviceInstaller });
+        }    
     }
 }

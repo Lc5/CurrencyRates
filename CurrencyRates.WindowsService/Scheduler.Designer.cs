@@ -1,23 +1,24 @@
-﻿using System.ComponentModel;
-
-namespace CurrencyRates.WindowsService
+﻿namespace CurrencyRates.WindowsService
 {
-    partial class Scheduler
+    using System.ComponentModel;
+
+    public partial class Scheduler
     {
-        IContainer Components = null;
-
-        void InitializeComponent()
-        {
-            ServiceName = "CurrencyRates Scheduler";
-        }
-
+        private IContainer components = null;
+     
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (Components != null))
+            if (disposing && (this.components != null))
             {
-                Components.Dispose();
+                this.components.Dispose();
             }
+
             base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            ServiceName = "CurrencyRates Scheduler";
         }
     }
 }
