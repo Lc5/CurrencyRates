@@ -39,6 +39,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -74,11 +75,11 @@
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DbContext.cs" />
-    <Compile Include="Entity\Comparer\CurrencyComparer.cs" />
-    <Compile Include="Query\RateQuery.cs" />
-    <Compile Include="Entity\Currency.cs" />
-    <Compile Include="Entity\File.cs" />
-    <Compile Include="Entity\Rate.cs" />
+    <Compile Include="Entities\Comparers\CurrencyComparer.cs" />
+    <Compile Include="Queries\RateQuery.cs" />
+    <Compile Include="Entities\Currency.cs" />
+    <Compile Include="Entities\File.cs" />
+    <Compile Include="Entities\Rate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@
     using System.Web.Mvc;
 
     using CurrencyRates.Model;
-    using CurrencyRates.Model.Entity;
+    using CurrencyRates.Model.Entities;
     using CurrencyRates.Tests.TestUtils;
     using CurrencyRates.Web.Controllers;
 

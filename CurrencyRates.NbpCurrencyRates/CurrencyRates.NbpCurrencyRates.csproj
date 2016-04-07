@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,16 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extension\Xml.cs" />
-    <Compile Include="Service\Entity\Collection\CurrencyRateCollection.cs" />
-    <Compile Include="Service\Entity\CurrencyRate.cs" />
-    <Compile Include="Service\Entity\File.cs" />
-    <Compile Include="Service\FileFetcher.cs" />
-    <Compile Include="Service\IFileFetcher.cs" />
+    <Compile Include="Extensions\Xml.cs" />
+    <Compile Include="Services\Entities\Collections\CurrencyRateCollection.cs" />
+    <Compile Include="Services\Entities\CurrencyRate.cs" />
+    <Compile Include="Services\Entities\File.cs" />
+    <Compile Include="Services\FileFetcher.cs" />
+    <Compile Include="Services\IFileFetcher.cs" />
     <Compile Include="Net\IWebClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Net\WebClient.cs" />
-    <Compile Include="Service\Entity\NbpXml.cs" />
+    <Compile Include="Services\Entities\NbpXml.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

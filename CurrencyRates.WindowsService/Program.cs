@@ -3,7 +3,7 @@
     using System.ServiceProcess;
 
     using CurrencyRates.Base;
-    using CurrencyRates.Base.Service;
+    using CurrencyRates.Base.Services;
 
     public static class Program
     {

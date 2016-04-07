@@ -2,7 +2,7 @@
 {
     using System.Data.Entity;
 
-    using CurrencyRates.Model.Entity;
+    using CurrencyRates.Model.Entities;
 
     public class Context : DbContext
     {

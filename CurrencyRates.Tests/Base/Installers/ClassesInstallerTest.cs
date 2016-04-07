@@ -3,10 +3,10 @@
     using Castle.Windsor;
 
     using CurrencyRates.Base.Installers;
-    using CurrencyRates.Base.Service;
+    using CurrencyRates.Base.Services;
     using CurrencyRates.Model;
     using CurrencyRates.NbpCurrencyRates.Net;
-    using CurrencyRates.NbpCurrencyRates.Service;
+    using CurrencyRates.NbpCurrencyRates.Services;
 
     using NUnit.Framework;
 

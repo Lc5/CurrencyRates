@@ -4,7 +4,7 @@
     using System.ServiceProcess;
     using System.Timers;
 
-    using CurrencyRates.Base.Service;
+    using CurrencyRates.Base.Services;
 
     public partial class Scheduler : ServiceBase
     {

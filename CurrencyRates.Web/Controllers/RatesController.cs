@@ -5,7 +5,7 @@
     using System.Web.Mvc;
 
     using CurrencyRates.Model;
-    using CurrencyRates.Model.Query;
+    using CurrencyRates.Model.Queries;
 
     public class RatesController : Controller
     {

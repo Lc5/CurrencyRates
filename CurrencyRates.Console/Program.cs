@@ -3,12 +3,12 @@
     using System;
 
     using CurrencyRates.Base;
-    using CurrencyRates.Base.Service;
+    using CurrencyRates.Base.Services;
     using CurrencyRates.Console.Presentation;
     using CurrencyRates.Model;
-    using CurrencyRates.Model.Query;
+    using CurrencyRates.Model.Queries;
 
-    using Action = CurrencyRates.Console.Enum.Action;
+    using Action = CurrencyRates.Console.Enums.Action;
 
     public static class Program
     {

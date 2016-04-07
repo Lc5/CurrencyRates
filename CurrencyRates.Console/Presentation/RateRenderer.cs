@@ -3,8 +3,8 @@
     using System.Collections.Generic;
     using System.Text;
 
-    using CurrencyRates.Base.Extension;
-    using CurrencyRates.Model.Entity;
+    using CurrencyRates.Base.Extensions;
+    using CurrencyRates.Model.Entities;
 
     public static class RateRenderer
     {

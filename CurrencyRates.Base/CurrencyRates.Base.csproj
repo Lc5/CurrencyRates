@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -59,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerBootstrapper.cs" />
-    <Compile Include="Extension\ExceptionExtension.cs" />
-    <Compile Include="Extension\StringUtils.cs" />
+    <Compile Include="Extensions\ExceptionExtension.cs" />
+    <Compile Include="Extensions\StringUtils.cs" />
     <Compile Include="Installers\ClassesInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\Synchronizer.cs" />
+    <Compile Include="Services\Synchronizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CurrencyRates.Model\CurrencyRates.Model.csproj">
