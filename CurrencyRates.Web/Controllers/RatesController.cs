@@ -1,19 +1,20 @@
 ﻿namespace CurrencyRates.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Net;
     using System.Web.Mvc;
 
-    using CurrencyRates.Model;
-    using CurrencyRates.Model.Queries;
+    using CurrencyRates.Model.Entities;
+    using CurrencyRates.Web.CurrencyRatesService;
 
     public class RatesController : Controller
     {
-        private readonly Context context;
+        private readonly ICurrencyRatesService currencyRatesService;
 
-        public RatesController(Context context)
+        public RatesController(ICurrencyRatesService currencyRatesService)
         {
-            this.context = context;
+            this.currencyRatesService = currencyRatesService;
         }
 
         public ActionResult Details(int? id)
@@ -23,7 +24,7 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var rate = this.context.Rates.Find(id);
+            var rate = this.currencyRatesService.Find(id.GetValueOrDefault());
 
             if (rate == null)
             {
@@ -35,19 +36,9 @@
 
         public ViewResult Index()
         {
-            var rates = this.context.Rates.FindLatest();
+            var rates = (IEnumerable<Rate>)this.currencyRatesService.FindLatest();
 
             return this.View(rates.ToList());
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                this.context.Dispose();
-            }
-
-            base.Dispose(disposing);
         }
     }
 }
