@@ -16,7 +16,7 @@ namespace CurrencyRates.Base
 
         public static ContainerBootstrapper Bootstrap()
         {
-            var container = new WindsorContainer().Install(FromAssembly.InThisApplication());
+            var container = new WindsorContainer().Install(FromAssembly.This());
 
             return new ContainerBootstrapper(container);
         }
