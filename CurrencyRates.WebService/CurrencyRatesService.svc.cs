@@ -13,7 +13,8 @@
 
         public CurrencyRatesService(Context context)
         {
-            this.context = context;          
+            this.context = context;
+            this.context.Configuration.ProxyCreationEnabled = false;
         }
 
         public Rate Find(int id)

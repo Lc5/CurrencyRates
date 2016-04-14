@@ -10,7 +10,7 @@
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<Context>().LifestylePerWebRequest());
+            container.Register(Component.For<Context>());
         }
     }
 }
