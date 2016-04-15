@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Linq;
 
     using CurrencyRates.Model;
     using CurrencyRates.Model.Entities;
@@ -19,12 +20,18 @@
 
         public Rate Find(int id)
         {
-            return this.context.Rates.Find(id);
+            return this.context
+                .Rates
+                .Include(r => r.File)
+                .SingleOrDefault(r => r.Id == id);
         }
 
         public IEnumerable<Rate> FindLatest()
         {           
-            return this.context.Rates.FindLatest().Include(r => r.Currency);
+            return this.context
+                .Rates
+                .FindLatest()
+                .Include(r => r.Currency);
         }
     }
 }
