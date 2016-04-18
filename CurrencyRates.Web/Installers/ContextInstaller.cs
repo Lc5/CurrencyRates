@@ -1,5 +1,6 @@
 ﻿namespace CurrencyRates.Web.Installers
 {
+    using Castle.Facilities.WcfIntegration;
     using Castle.MicroKernel.Registration;
     using Castle.MicroKernel.SubSystems.Configuration;
     using Castle.Windsor;
@@ -13,6 +14,7 @@
             container.Register(
                 Component
                     .For<Context>()
+                    .LifestyleTransient()
                     .OnCreate(c => c.Configuration.ProxyCreationEnabled = false));
         }
     }
