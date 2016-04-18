@@ -22,7 +22,9 @@
         [Test]
         public void TestContextIsRegistered()
         {
-            this.containerWithContext.Resolve<Context>();
+            var context = this.containerWithContext.Resolve<Context>();
+
+            Assert.That(context.Configuration.ProxyCreationEnabled, Is.False);
         }       
     }
 }

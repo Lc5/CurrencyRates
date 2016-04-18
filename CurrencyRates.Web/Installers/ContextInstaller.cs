@@ -10,7 +10,10 @@
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<Context>());
+            container.Register(
+                Component
+                    .For<Context>()
+                    .OnCreate(c => c.Configuration.ProxyCreationEnabled = false));
         }
     }
 }

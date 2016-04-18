@@ -15,7 +15,7 @@
             var second = new Currency { Code = "PLN" };
             var comparer = new CurrencyComparer();
 
-            Assert.That(comparer.Equals(first, second));
+            Assert.That(comparer.Equals(first, second), Is.True);
         }
 
         [Test]
@@ -25,7 +25,7 @@
             var second = new Currency { Code = "CHF" };
             var comparer = new CurrencyComparer();
 
-            Assert.That(!comparer.Equals(first, second));
+            Assert.That(comparer.Equals(first, second), Is.False);
         }
 
         [Test]
