@@ -27,10 +27,14 @@
         [Test]
         public void TestTruncateThrowsException()
         {
-            var exception = Assert.Throws<ArgumentOutOfRangeException>(() => StringUtils.Truncate("Example", 3));
+            Assert.That(
+                () => StringUtils.Truncate("Example", 3),
+                Throws
+                    .TypeOf<ArgumentOutOfRangeException>()
+                    .With.Property("ParamName").EqualTo("maxLength")
+                    .With.Property("Message").Contain("maxLength must be at least 4")
 
-            Assert.That(exception.ParamName, Is.EqualTo("maxLength"));
-            Assert.That(exception.Message, Does.Contain("maxLength must be at least 4"));
+            );
         }
     }
 }
